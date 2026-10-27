@@ -1,0 +1,4231 @@
+{
+  "source": "E:\\Claude_code_work\\test111\\GHPC_MOD\\L2A4M\\source\\Leopard_2A4M\\Leopard_2A4M.obj",
+  "mirror_x": true,
+  "turret_order_anchor": 88,
+  "objects": {
+    "vehicle#ex_armor_l_01_9": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 907,
+      "polys": 815,
+      "tris": 815,
+      "bbox_model": [
+        1.704,
+        0.9452,
+        3.2487,
+        1.9525,
+        1.4233,
+        3.7826
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_02_11": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 770,
+      "polys": 640,
+      "tris": 640,
+      "bbox_model": [
+        1.6396,
+        0.8383,
+        2.6447,
+        1.9534,
+        1.5063,
+        3.246
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_03_12": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 626,
+      "polys": 528,
+      "tris": 528,
+      "bbox_model": [
+        1.639,
+        0.9481,
+        2.0455,
+        1.9528,
+        1.6004,
+        2.642
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_04_17": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 538,
+      "polys": 454,
+      "tris": 454,
+      "bbox_model": [
+        1.6417,
+        0.948,
+        1.433,
+        1.9534,
+        1.6705,
+        2.0427
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_05_18": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 1199,
+      "polys": 953,
+      "tris": 953,
+      "bbox_model": [
+        1.6423,
+        0.8393,
+        0.2835,
+        1.9537,
+        1.6705,
+        1.4302
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_06_19": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 855,
+      "polys": 753,
+      "tris": 753,
+      "bbox_model": [
+        1.6423,
+        0.8502,
+        -0.9243,
+        1.9537,
+        1.696,
+        0.3482
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_07_32": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 98,
+      "polys": 72,
+      "tris": 72,
+      "bbox_model": [
+        1.6828,
+        0.9096,
+        -1.1979,
+        1.708,
+        1.3039,
+        -0.8893
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_08_31": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 384,
+      "polys": 404,
+      "tris": 404,
+      "bbox_model": [
+        1.6828,
+        0.7066,
+        -2.2328,
+        1.708,
+        1.3039,
+        -1.1984
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_09_33": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 169,
+      "polys": 134,
+      "tris": 134,
+      "bbox_model": [
+        1.6828,
+        0.9096,
+        -2.9295,
+        1.708,
+        1.3039,
+        -2.0641
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_l_10_34": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 138,
+      "polys": 104,
+      "tris": 104,
+      "bbox_model": [
+        1.6828,
+        1.0986,
+        -3.7948,
+        1.708,
+        1.304,
+        -2.9301
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_01_8": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 907,
+      "polys": 815,
+      "tris": 815,
+      "bbox_model": [
+        -1.9542,
+        0.9452,
+        3.2487,
+        -1.7057,
+        1.4233,
+        3.7826
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_02_10": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 770,
+      "polys": 640,
+      "tris": 640,
+      "bbox_model": [
+        -1.9551,
+        0.8383,
+        2.6447,
+        -1.6413,
+        1.5063,
+        3.246
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_03_13": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 626,
+      "polys": 528,
+      "tris": 528,
+      "bbox_model": [
+        -1.9551,
+        0.9481,
+        2.0455,
+        -1.6413,
+        1.6004,
+        2.642
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_04_14": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 538,
+      "polys": 454,
+      "tris": 454,
+      "bbox_model": [
+        -1.9552,
+        0.948,
+        1.433,
+        -1.643,
+        1.6705,
+        2.0427
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_05_15": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 278,
+      "polys": 206,
+      "tris": 206,
+      "bbox_model": [
+        -1.9551,
+        0.948,
+        0.3407,
+        -1.6523,
+        1.6705,
+        1.4302
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_06_16": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 760,
+      "polys": 702,
+      "tris": 702,
+      "bbox_model": [
+        -1.9552,
+        0.9481,
+        -0.754,
+        -1.6635,
+        1.696,
+        0.338
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_07_28": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 98,
+      "polys": 72,
+      "tris": 72,
+      "bbox_model": [
+        -1.7085,
+        0.9096,
+        -1.1978,
+        -1.6833,
+        1.3039,
+        -0.7179
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_08_27": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 384,
+      "polys": 404,
+      "tris": 404,
+      "bbox_model": [
+        -1.7085,
+        0.7066,
+        -2.2328,
+        -1.6833,
+        1.3039,
+        -1.1984
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_09_29": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 150,
+      "polys": 118,
+      "tris": 118,
+      "bbox_model": [
+        -1.7085,
+        0.9096,
+        -2.9295,
+        -1.6833,
+        1.3039,
+        -2.0641
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_10_30": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 138,
+      "polys": 104,
+      "tris": 104,
+      "bbox_model": [
+        -1.7085,
+        1.0986,
+        -3.7948,
+        -1.6833,
+        1.304,
+        -2.9301
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_armor_r_15_net_85": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 24894,
+      "polys": 28240,
+      "tris": 28240,
+      "bbox_model": [
+        -2.0305,
+        0.8991,
+        -3.9102,
+        2.0309,
+        1.811,
+        3.8059
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_decor_03_36": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 1063,
+      "polys": 1056,
+      "tris": 1056,
+      "bbox_model": [
+        1.2869,
+        1.7227,
+        -3.6301,
+        1.5339,
+        1.8322,
+        -2.5649
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_04_37": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 1063,
+      "polys": 1056,
+      "tris": 1056,
+      "bbox_model": [
+        1.1199,
+        1.736,
+        -3.8603,
+        1.3669,
+        1.8446,
+        -2.7951
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_05_22": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 6482,
+      "polys": 5556,
+      "tris": 5556,
+      "bbox_model": [
+        -1.9665,
+        1.3089,
+        -4.2351,
+        1.966,
+        1.8137,
+        -3.8991
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_l_01_2": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 677,
+      "polys": 816,
+      "tris": 816,
+      "bbox_model": [
+        0.5472,
+        1.0597,
+        3.4811,
+        0.7301,
+        1.2557,
+        3.7187
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_l_02_45": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 411,
+      "polys": 358,
+      "tris": 358,
+      "bbox_model": [
+        0.9443,
+        1.0562,
+        3.5403,
+        1.7113,
+        1.3452,
+        3.7817
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_l_03_39": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 580,
+      "polys": 800,
+      "tris": 800,
+      "bbox_model": [
+        1.5332,
+        1.4302,
+        2.537,
+        1.8518,
+        1.6131,
+        3.1233
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_l_04_21": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 4757,
+      "polys": 3984,
+      "tris": 3984,
+      "bbox_model": [
+        1.6738,
+        0.8826,
+        -4.1759,
+        1.9626,
+        1.7233,
+        -0.9951
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_l_05_26": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 382,
+      "polys": 310,
+      "tris": 310,
+      "bbox_model": [
+        1.0195,
+        0.5922,
+        -3.8696,
+        1.6731,
+        1.1196,
+        -3.7191
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_l_06_24": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 812,
+      "polys": 680,
+      "tris": 680,
+      "bbox_model": [
+        0.7849,
+        0.6918,
+        -4.2614,
+        1.3767,
+        1.3762,
+        -4.1123
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_r_01_3": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 677,
+      "polys": 816,
+      "tris": 816,
+      "bbox_model": [
+        -0.723,
+        1.0597,
+        3.4811,
+        -0.5401,
+        1.2557,
+        3.7187
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_r_02_44": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 411,
+      "polys": 358,
+      "tris": 358,
+      "bbox_model": [
+        -1.713,
+        1.0562,
+        3.5403,
+        -0.9426,
+        1.3452,
+        3.7817
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_r_03_38": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 580,
+      "polys": 800,
+      "tris": 800,
+      "bbox_model": [
+        -1.8535,
+        1.4302,
+        2.537,
+        -1.5349,
+        1.6131,
+        3.1233
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_r_04_20": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 4817,
+      "polys": 4014,
+      "tris": 4014,
+      "bbox_model": [
+        -1.9631,
+        0.8826,
+        -4.1759,
+        -1.6455,
+        1.7233,
+        -0.9951
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_r_05_25": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 382,
+      "polys": 310,
+      "tris": 310,
+      "bbox_model": [
+        -1.6732,
+        0.5922,
+        -3.8696,
+        -1.0196,
+        1.1196,
+        -3.7191
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_decor_r_06_23": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 812,
+      "polys": 680,
+      "tris": 680,
+      "bbox_model": [
+        -1.3772,
+        0.6918,
+        -4.2615,
+        -0.7854,
+        1.3762,
+        -4.1124
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#ex_lantern_l_01_1": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 1225,
+      "polys": 1368,
+      "tris": 1368,
+      "bbox_model": [
+        0.7466,
+        1.1583,
+        3.3678,
+        0.9523,
+        1.3768,
+        3.5827
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+        "5d04eddb-5a28-40a2-acc0-a40f1619f626",
+        "52dafb15-5fdf-4e2b-bddb-7bc0290056fe"
+      ]
+    },
+    "vehicle#ex_lantern_r_01_0": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 1225,
+      "polys": 1368,
+      "tris": 1368,
+      "bbox_model": [
+        -0.9541,
+        1.1564,
+        3.3872,
+        -0.7484,
+        1.3749,
+        3.6021
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+        "5d04eddb-5a28-40a2-acc0-a40f1619f626",
+        "52dafb15-5fdf-4e2b-bddb-7bc0290056fe"
+      ]
+    },
+    "vehicle#hatch_01_35": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 501,
+      "polys": 434,
+      "tris": 434,
+      "bbox_model": [
+        -1.2621,
+        1.4602,
+        1.6357,
+        -0.3043,
+        1.6647,
+        2.5083
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#hatch_02_43": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 262,
+      "polys": 260,
+      "tris": 260,
+      "bbox_model": [
+        -1.7046,
+        1.3576,
+        -2.3457,
+        -1.6462,
+        1.6158,
+        -1.5433
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#hatch_03_42": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 262,
+      "polys": 260,
+      "tris": 260,
+      "bbox_model": [
+        -1.7027,
+        1.4099,
+        -3.3616,
+        -1.6439,
+        1.6568,
+        -2.5574
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#hatch_04_41": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 132,
+      "polys": 122,
+      "tris": 122,
+      "bbox_model": [
+        1.6314,
+        1.3551,
+        -0.89,
+        1.6863,
+        1.6498,
+        0.1757
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#hatch_05_40": {
+      "anchor": "Hull",
+      "base_shell": false,
+      "verts": 262,
+      "polys": 260,
+      "tris": 260,
+      "bbox_model": [
+        1.6472,
+        1.3576,
+        -2.3456,
+        1.7055,
+        1.6158,
+        -1.5434
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#x_root_86": {
+      "anchor": "Hull",
+      "base_shell": true,
+      "verts": 33855,
+      "polys": 56039,
+      "tris": 62376,
+      "bbox_model": [
+        -1.7263,
+        0.4433,
+        -4.214,
+        1.7246,
+        1.8922,
+        3.6068
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+        "b3b3964e-d204-4c86-a32a-66b9a028fd6f"
+      ]
+    },
+    "vehicle#ammo_84": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 891,
+      "polys": 1134,
+      "tris": 1134,
+      "bbox_model": [
+        0.9063,
+        2.8232,
+        -0.3648,
+        1.1721,
+        2.8533,
+        -0.1783
+      ],
+      "materials": [
+        "52054b82-8197-4326-8d78-dca3d050ffed"
+      ]
+    },
+    "vehicle#antenna_01_123": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 56,
+      "polys": 84,
+      "tris": 84,
+      "bbox_model": [
+        1.0353,
+        3.1584,
+        -1.9075,
+        1.0426,
+        5.1096,
+        -1.9004
+      ],
+      "materials": [
+        "283267c4-7178-408f-b451-edd1e0b8c82e"
+      ]
+    },
+    "vehicle#antenna_02_124": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 56,
+      "polys": 84,
+      "tris": 84,
+      "bbox_model": [
+        1.0176,
+        3.1584,
+        -2.4232,
+        1.0248,
+        5.1096,
+        -2.416
+      ],
+      "materials": [
+        "283267c4-7178-408f-b451-edd1e0b8c82e"
+      ]
+    },
+    "vehicle#antenna_03_122": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 56,
+      "polys": 84,
+      "tris": 84,
+      "bbox_model": [
+        -0.9901,
+        3.1584,
+        -1.9075,
+        -0.9829,
+        5.1096,
+        -1.9004
+      ],
+      "materials": [
+        "283267c4-7178-408f-b451-edd1e0b8c82e"
+      ]
+    },
+    "vehicle#antenna_04_87": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 56,
+      "polys": 84,
+      "tris": 84,
+      "bbox_model": [
+        -0.9723,
+        3.1584,
+        -2.4232,
+        -0.965,
+        5.1096,
+        -2.416
+      ],
+      "materials": [
+        "283267c4-7178-408f-b451-edd1e0b8c82e"
+      ]
+    },
+    "vehicle#bone_mg_aa_v_01_120": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 3108,
+      "polys": 2451,
+      "tris": 2451,
+      "bbox_model": [
+        0.7967,
+        2.6638,
+        -0.7582,
+        0.9365,
+        2.8975,
+        0.4966
+      ],
+      "materials": [
+        "58c053e4-a10a-487d-a56b-1b6a35d1ac8d"
+      ]
+    },
+    "vehicle#bone_turret_88": {
+      "anchor": "Turret",
+      "base_shell": true,
+      "verts": 25293,
+      "polys": 42232,
+      "tris": 46491,
+      "bbox_model": [
+        -1.4295,
+        0.7776,
+        -3.1285,
+        1.6625,
+        3.1584,
+        2.7378
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f",
+        "e5e2d192-1cda-4d91-b95e-9e3e3845fa33"
+      ]
+    },
+    "vehicle#ex_armor_l_11_100": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1902,
+      "polys": 1577,
+      "tris": 1577,
+      "bbox_model": [
+        1.1732,
+        1.7237,
+        0.2635,
+        1.5898,
+        2.4584,
+        1.5669
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#ex_armor_l_11_net_116": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 890,
+      "polys": 900,
+      "tris": 900,
+      "bbox_model": [
+        1.1875,
+        1.7236,
+        0.2642,
+        1.6434,
+        2.4952,
+        1.389
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_armor_l_12_93": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 974,
+      "polys": 725,
+      "tris": 725,
+      "bbox_model": [
+        1.182,
+        1.7235,
+        -0.7511,
+        1.6629,
+        2.4694,
+        0.2727
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#ex_armor_l_12_net_112": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1112,
+      "polys": 1188,
+      "tris": 1188,
+      "bbox_model": [
+        1.1804,
+        1.7279,
+        -0.7516,
+        1.6737,
+        2.5274,
+        0.2724
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_armor_l_13_102": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 2162,
+      "polys": 1861,
+      "tris": 1861,
+      "bbox_model": [
+        1.3649,
+        1.8467,
+        -2.1184,
+        1.6489,
+        2.4493,
+        -0.7485
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#ex_armor_l_13_net_106": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1024,
+      "polys": 1047,
+      "tris": 1047,
+      "bbox_model": [
+        1.3649,
+        1.8277,
+        -2.0633,
+        1.6986,
+        2.4963,
+        -0.7485
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_armor_r_11_97": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1849,
+      "polys": 1528,
+      "tris": 1528,
+      "bbox_model": [
+        -1.6843,
+        1.7399,
+        0.1308,
+        -1.2649,
+        2.4652,
+        1.5279
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#ex_armor_r_11_net_114": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 924,
+      "polys": 919,
+      "tris": 919,
+      "bbox_model": [
+        -1.7302,
+        1.7311,
+        0.1261,
+        -1.2719,
+        2.5021,
+        1.3417
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_armor_r_12_101": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1079,
+      "polys": 847,
+      "tris": 847,
+      "bbox_model": [
+        -1.6945,
+        1.7397,
+        -0.8457,
+        -1.3017,
+        2.4715,
+        0.1212
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#ex_armor_r_12_net_104": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 928,
+      "polys": 967,
+      "tris": 967,
+      "bbox_model": [
+        -1.7538,
+        1.7458,
+        -0.8461,
+        -1.3134,
+        2.5172,
+        0.1208
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_armor_r_13_94": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 2035,
+      "polys": 1734,
+      "tris": 1734,
+      "bbox_model": [
+        -1.7087,
+        1.8726,
+        -2.06,
+        -1.3372,
+        2.4668,
+        -0.8244
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#ex_armor_r_13_net_105": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 897,
+      "polys": 937,
+      "tris": 937,
+      "bbox_model": [
+        -1.751,
+        1.8695,
+        -2.013,
+        -1.3373,
+        2.5172,
+        -0.8262
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_armor_r_14_net_103": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 12937,
+      "polys": 13790,
+      "tris": 13790,
+      "bbox_model": [
+        -1.3492,
+        1.692,
+        -3.1858,
+        1.2741,
+        2.7566,
+        2.7639
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_armor_r_16_net_118": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 434,
+      "polys": 566,
+      "tris": 566,
+      "bbox_model": [
+        -1.0545,
+        2.6497,
+        -0.0004,
+        -0.5912,
+        2.901,
+        0.3904
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#ex_decor_01_126": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 179,
+      "polys": 246,
+      "tris": 246,
+      "bbox_model": [
+        -0.169,
+        1.8282,
+        2.3756,
+        0.166,
+        2.1712,
+        2.6357
+      ],
+      "materials": [
+        "421250de-2d1c-43e7-ab16-d84f98eb0f64"
+      ]
+    },
+    "vehicle#ex_decor_02_125": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 574,
+      "polys": 912,
+      "tris": 912,
+      "bbox_model": [
+        -0.487,
+        2.3156,
+        1.2384,
+        0.5213,
+        2.4057,
+        1.5285
+      ],
+      "materials": [
+        "421250de-2d1c-43e7-ab16-d84f98eb0f64"
+      ]
+    },
+    "vehicle#ex_decor_06_92": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 3284,
+      "polys": 2644,
+      "tris": 2644,
+      "bbox_model": [
+        -1.5532,
+        1.8263,
+        -3.454,
+        1.6241,
+        2.4328,
+        -2.162
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#ex_decor_l_07_96": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 2196,
+      "polys": 2036,
+      "tris": 2036,
+      "bbox_model": [
+        0.6801,
+        1.873,
+        -3.1286,
+        1.4105,
+        2.4258,
+        -2.2754
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f",
+        "8930d211-166d-4185-b374-5d8d61bf39b9"
+      ]
+    },
+    "vehicle#ex_decor_r_07_95": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 2182,
+      "polys": 2024,
+      "tris": 2024,
+      "bbox_model": [
+        -1.3396,
+        1.873,
+        -3.1279,
+        -0.6095,
+        2.4136,
+        -2.2754
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f",
+        "8930d211-166d-4185-b374-5d8d61bf39b9"
+      ]
+    },
+    "vehicle#hatch_06_99": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1102,
+      "polys": 950,
+      "tris": 950,
+      "bbox_model": [
+        -1.5919,
+        1.7311,
+        1.2231,
+        -1.2877,
+        2.3358,
+        2.1366
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#hatch_06_net_115": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 493,
+      "polys": 505,
+      "tris": 505,
+      "bbox_model": [
+        -1.5744,
+        1.7274,
+        1.2014,
+        -1.3106,
+        2.3657,
+        2.1126
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#hatch_07_98": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1102,
+      "polys": 950,
+      "tris": 950,
+      "bbox_model": [
+        1.1983,
+        1.7252,
+        1.2621,
+        1.5024,
+        2.3299,
+        2.1756
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#hatch_07_net_113": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 520,
+      "polys": 539,
+      "tris": 539,
+      "bbox_model": [
+        1.2272,
+        1.7199,
+        1.2383,
+        1.5055,
+        2.361,
+        2.1519
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#hatch_08_89": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1526,
+      "polys": 1713,
+      "tris": 1713,
+      "bbox_model": [
+        -0.8738,
+        2.4705,
+        -0.617,
+        -0.329,
+        2.6339,
+        0.0367
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#hatch_09_91": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1709,
+      "polys": 1869,
+      "tris": 1869,
+      "bbox_model": [
+        0.2759,
+        2.4207,
+        -0.5951,
+        0.8274,
+        2.6034,
+        0.0363
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#mg_mount_h_119": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1684,
+      "polys": 1350,
+      "tris": 1350,
+      "bbox_model": [
+        0.8262,
+        2.6146,
+        -0.4529,
+        1.2774,
+        2.9154,
+        -0.068
+      ],
+      "materials": [
+        "58c053e4-a10a-487d-a56b-1b6a35d1ac8d",
+        "ecc42911-affe-410e-a233-17ee91775d28"
+      ]
+    },
+    "vehicle#mg_mount_v_121": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1264,
+      "polys": 992,
+      "tris": 992,
+      "bbox_model": [
+        0.858,
+        2.6657,
+        -0.5694,
+        0.988,
+        2.8363,
+        0.1014
+      ],
+      "materials": [
+        "ecc42911-affe-410e-a233-17ee91775d28"
+      ]
+    },
+    "vehicle#optic_commander_117": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 3825,
+      "polys": 3188,
+      "tris": 3188,
+      "bbox_model": [
+        -1.0457,
+        2.6232,
+        0.032,
+        -0.6072,
+        2.8464,
+        0.4805
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#turret_02_90": {
+      "anchor": "Turret",
+      "base_shell": false,
+      "verts": 1119,
+      "polys": 939,
+      "tris": 939,
+      "bbox_model": [
+        0.7902,
+        2.5649,
+        -0.446,
+        0.9386,
+        2.6622,
+        -0.1289
+      ],
+      "materials": [
+        "91e6cf70-a751-4180-91d5-a418efd5e16f"
+      ]
+    },
+    "vehicle#bone_gun_107": {
+      "anchor": "Gun",
+      "base_shell": true,
+      "verts": 1538,
+      "polys": 2680,
+      "tris": 2910,
+      "bbox_model": [
+        -0.4683,
+        1.7116,
+        1.1389,
+        0.4775,
+        2.374,
+        2.7335
+      ],
+      "materials": [
+        "ce4a6d05-9d8c-451a-b503-c3a40a58f0bb"
+      ]
+    },
+    "vehicle#bone_mg_gun_twin_111": {
+      "anchor": "Gun",
+      "base_shell": false,
+      "verts": 3108,
+      "polys": 2451,
+      "tris": 2451,
+      "bbox_model": [
+        0.2199,
+        1.9664,
+        0.699,
+        0.3597,
+        2.2001,
+        1.9538
+      ],
+      "materials": [
+        "58c053e4-a10a-487d-a56b-1b6a35d1ac8d"
+      ]
+    },
+    "vehicle#gun_barrel_109": {
+      "anchor": "Gun",
+      "base_shell": true,
+      "verts": 1420,
+      "polys": 2524,
+      "tris": 2646,
+      "bbox_model": [
+        -0.2714,
+        1.6377,
+        -0.159,
+        0.3067,
+        2.2112,
+        5.5426
+      ],
+      "materials": [
+        "ce4a6d05-9d8c-451a-b503-c3a40a58f0bb",
+        "9d320837-28dd-4428-8f67-bbb7650673ac"
+      ]
+    },
+    "vehicle#gun_barrel_net_110": {
+      "anchor": "Gun",
+      "base_shell": false,
+      "verts": 3783,
+      "polys": 4939,
+      "tris": 4939,
+      "bbox_model": [
+        -0.2299,
+        1.8244,
+        2.9817,
+        0.2127,
+        2.247,
+        5.3467
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#gun_mask_net_108": {
+      "anchor": "Gun",
+      "base_shell": false,
+      "verts": 1605,
+      "polys": 1850,
+      "tris": 1850,
+      "bbox_model": [
+        -0.4831,
+        1.8358,
+        1.524,
+        0.4775,
+        2.3781,
+        2.776
+      ],
+      "materials": [
+        "c555da14-031b-4f55-830b-84a3557b745c",
+        "2eea4d2c-8c77-436c-ac53-78b6211f954a",
+        "fc4e04d2-e765-478f-9ae5-8c900aba7b1a"
+      ]
+    },
+    "vehicle#suspension_l_01_70": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        1.091,
+        0.3295,
+        2.2082,
+        1.3591,
+        0.7998,
+        2.8898
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_l_02_72": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        1.0924,
+        0.33,
+        1.3527,
+        1.3591,
+        0.7337,
+        2.0072
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_l_03_74": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        1.0924,
+        0.33,
+        0.5636,
+        1.3591,
+        0.7337,
+        1.2179
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_l_04_76": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        1.0924,
+        0.33,
+        -0.2085,
+        1.3591,
+        0.7337,
+        0.446
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_l_05_78": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        1.0924,
+        0.3299,
+        -1.0573,
+        1.3591,
+        0.7337,
+        -0.4028
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_l_06_80": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        1.0924,
+        0.3299,
+        -1.8912,
+        1.3591,
+        0.7337,
+        -1.2367
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_l_07_82": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        1.0924,
+        0.3299,
+        -2.7353,
+        1.3591,
+        0.7337,
+        -2.0808
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_r_01_57": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        -1.3629,
+        0.3296,
+        2.4356,
+        -1.0948,
+        0.8268,
+        3.1018
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_r_02_58": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        -1.3629,
+        0.33,
+        1.5996,
+        -1.0962,
+        0.7337,
+        2.2541
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_r_03_60": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        -1.3629,
+        0.33,
+        0.7793,
+        -1.0962,
+        0.7337,
+        1.4338
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_r_04_62": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        -1.3629,
+        0.33,
+        0.0275,
+        -1.0962,
+        0.7337,
+        0.682
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_r_05_64": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        -1.3629,
+        0.33,
+        -0.8203,
+        -1.0962,
+        0.7337,
+        -0.1658
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_r_06_66": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        -1.3629,
+        0.33,
+        -1.6711,
+        -1.0962,
+        0.7337,
+        -1.0167
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#suspension_r_07_68": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 189,
+      "polys": 171,
+      "tris": 171,
+      "bbox_model": [
+        -1.3629,
+        0.33,
+        -2.5188,
+        -1.0962,
+        0.7337,
+        -1.8643
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#track_l_47": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 5568,
+      "polys": 5490,
+      "tris": 5490,
+      "bbox_model": [
+        1.0376,
+        -0.0114,
+        -3.6058,
+        1.6802,
+        1.2918,
+        3.5247
+      ],
+      "materials": [
+        "d9a77e66-fa51-4dc7-8342-0ca32f70fa73"
+      ]
+    },
+    "vehicle#track_r_46": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 5782,
+      "polys": 5734,
+      "tris": 5734,
+      "bbox_model": [
+        -1.684,
+        -0.0116,
+        -3.6058,
+        -1.0413,
+        1.2912,
+        3.5247
+      ],
+      "materials": [
+        "0fa2080f-7b5e-4703-b507-35f702feacf5"
+      ]
+    },
+    "vehicle#wheel_l_01_71": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        1.1918,
+        0.0764,
+        1.9347,
+        1.526,
+        0.7733,
+        2.6316
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_02_73": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        1.1918,
+        0.0764,
+        1.0787,
+        1.526,
+        0.7733,
+        1.7756
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_03_75": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        1.1918,
+        0.0764,
+        0.2896,
+        1.526,
+        0.7733,
+        0.9865
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_04_77": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        1.1918,
+        0.0764,
+        -0.4825,
+        1.526,
+        0.7733,
+        0.2144
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_05_79": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        1.1918,
+        0.0764,
+        -1.3313,
+        1.526,
+        0.7733,
+        -0.6344
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_06_81": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        1.1918,
+        0.0764,
+        -2.1652,
+        1.526,
+        0.7733,
+        -1.4682
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_07_83": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        1.1918,
+        0.0764,
+        -3.0093,
+        1.526,
+        0.7733,
+        -2.3124
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_drive_7": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 2645,
+      "polys": 2445,
+      "tris": 2445,
+      "bbox_model": [
+        1.0417,
+        0.5379,
+        -3.567,
+        1.6773,
+        1.2512,
+        -2.8608
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_front_5": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 1092,
+      "polys": 1088,
+      "tris": 1088,
+      "bbox_model": [
+        1.1945,
+        0.6246,
+        2.896,
+        1.5197,
+        1.1656,
+        3.4371
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_top_01_55": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        1.4365,
+        0.9716,
+        1.7965,
+        1.5931,
+        1.2035,
+        2.0284
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_top_02_54": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        1.2093,
+        0.9716,
+        0.9811,
+        1.3659,
+        1.2035,
+        1.2129
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_top_03_53": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        1.4365,
+        0.9716,
+        -0.5491,
+        1.5931,
+        1.2035,
+        -0.3172
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_l_top_04_52": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        1.2107,
+        0.9716,
+        -2.2209,
+        1.3672,
+        1.2035,
+        -1.989
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_01_56": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        -1.5297,
+        0.0762,
+        2.162,
+        -1.1956,
+        0.7731,
+        2.8589
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_02_59": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        -1.5297,
+        0.0762,
+        1.3255,
+        -1.1956,
+        0.7731,
+        2.0224
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_03_61": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        -1.5297,
+        0.0762,
+        0.5058,
+        -1.1956,
+        0.7731,
+        1.2028
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_04_63": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        -1.5297,
+        0.0762,
+        -0.2466,
+        -1.1956,
+        0.7731,
+        0.4503
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_05_65": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        -1.5297,
+        0.0762,
+        -1.0947,
+        -1.1956,
+        0.7731,
+        -0.3978
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_06_67": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        -1.5297,
+        0.0762,
+        -1.9445,
+        -1.1956,
+        0.7731,
+        -1.2476
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_07_69": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 872,
+      "polys": 956,
+      "tris": 956,
+      "bbox_model": [
+        -1.5297,
+        0.0762,
+        -2.7921,
+        -1.1956,
+        0.7731,
+        -2.0952
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_drive_6": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 2645,
+      "polys": 2445,
+      "tris": 2445,
+      "bbox_model": [
+        -1.6813,
+        0.5379,
+        -3.567,
+        -1.0456,
+        1.2512,
+        -2.8608
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_front_4": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 1092,
+      "polys": 1088,
+      "tris": 1088,
+      "bbox_model": [
+        -1.5234,
+        0.6246,
+        2.896,
+        -1.1963,
+        1.1656,
+        3.4371
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_top_01_51": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        -1.5967,
+        0.9716,
+        1.9186,
+        -1.4402,
+        1.2035,
+        2.1505
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_top_02_50": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        -1.3695,
+        0.9716,
+        1.1032,
+        -1.213,
+        1.2035,
+        1.335
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_top_03_49": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        -1.5967,
+        0.9716,
+        -0.427,
+        -1.4402,
+        1.2035,
+        -0.1951
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    },
+    "vehicle#wheel_r_top_04_48": {
+      "anchor": "RunningGear",
+      "base_shell": false,
+      "verts": 252,
+      "polys": 236,
+      "tris": 236,
+      "bbox_model": [
+        -1.3709,
+        0.9716,
+        -2.0988,
+        -1.2143,
+        1.2035,
+        -1.867
+      ],
+      "materials": [
+        "63642590-773a-4a9a-ad9e-583cf8fa0ada"
+      ]
+    }
+  },
+  "materials": {
+    "63642590-773a-4a9a-ad9e-583cf8fa0ada": {
+      "map_Kd": "textures/leopard_2a4m_can_body_c_ger_camo_bronzegruen.jpg",
+      "map_Ks": "textures/leopard_2a4m_can_body_n_s.jpg",
+      "map_normal": "textures/leopard_2a4m_can_body_n_n.jpg",
+      "map_ao": "textures/leopard_2a4m_can_body_ao_ao.jpg"
+    },
+    "5d04eddb-5a28-40a2-acc0-a40f1619f626": {
+      "map_Kd": "textures/headlight_glass_c.jpg",
+      "map_Ks": "textures/headlight_glass_n_s.jpg",
+      "map_normal": "textures/headlight_glass_n_n.jpg",
+      "map_ao": "textures/headlight_glass_n_ao.jpg"
+    },
+    "52dafb15-5fdf-4e2b-bddb-7bc0290056fe": {
+      "d": "0.15",
+      "map_Kd": "textures/headlight_glass_c.jpg",
+      "map_Ks": "textures/headlight_glass_n_s.jpg",
+      "map_normal": "textures/headlight_glass_n_n.jpg",
+      "map_d": "textures/headlight_glass_c_a.png"
+    },
+    "0fa2080f-7b5e-4703-b507-35f702feacf5": {
+      "map_Kd": "textures/ger_leopard_2a4_track_c.jpg",
+      "map_Ks": "textures/ger_leopard_2a4_track_n_s.jpg",
+      "map_normal": "textures/ger_leopard_2a4_track_n_n.jpg",
+      "map_ao": "textures/ger_leopard_2a4_track_ao_ao.jpg",
+      "map_d": "textures/ger_leopard_2a4_track_c_a.png"
+    },
+    "d9a77e66-fa51-4dc7-8342-0ca32f70fa73": {
+      "map_Kd": "textures/ger_leopard_2a4_track_c.jpg",
+      "map_Ks": "textures/ger_leopard_2a4_track_n_s.jpg",
+      "map_normal": "textures/ger_leopard_2a4_track_n_n.jpg",
+      "map_ao": "textures/ger_leopard_2a4_track_ao_ao.jpg",
+      "map_d": "textures/ger_leopard_2a4_track_c_a.png"
+    },
+    "52054b82-8197-4326-8d78-dca3d050ffed": {
+      "map_Kd": "textures/mg_l37a1_ammo_c.jpg",
+      "map_Ks": "textures/mg_l37a1_ammo_n_s.jpg",
+      "map_normal": "textures/mg_l37a1_ammo_n_n.jpg",
+      "map_ao": "textures/mg_l37a1_ammo_n_ao.jpg"
+    },
+    "c555da14-031b-4f55-830b-84a3557b745c": {
+      "map_Kd": "textures/leopard_2a4m_can_camo_net_c_ger_camo_bronzegruen.jpg",
+      "map_Ks": "textures/leopard_2a4m_can_camo_net_n_s.jpg",
+      "map_normal": "textures/leopard_2a4m_can_camo_net_n_n.jpg",
+      "map_ao": "textures/leopard_2a4m_can_camo_net_ao_ao.jpg"
+    },
+    "2eea4d2c-8c77-436c-ac53-78b6211f954a": {
+      "map_Kd": "textures/brown_camo_net_b_c.jpg",
+      "map_Ks": "textures/camo_net_b_n_s.jpg",
+      "map_normal": "textures/camo_net_b_n_n.jpg",
+      "map_ao": "textures/camo_net_b_ao_ao.jpg"
+    },
+    "fc4e04d2-e765-478f-9ae5-8c900aba7b1a": {
+      "map_Kd": "textures/brown_camo_net_c_c.jpg",
+      "map_Ks": "textures/camo_net_c_n_s.jpg",
+      "map_normal": "textures/camo_net_c_n_n.jpg",
+      "map_ao": "textures/camo_net_c_ao_ao.jpg"
+    },
+    "b3b3964e-d204-4c86-a32a-66b9a028fd6f": {
+      "map_Kd": "textures/net_f_c.jpg",
+      "map_Ks": "textures/net_f_n_s.jpg",
+      "map_normal": "textures/net_f_n_n.jpg",
+      "map_ao": "textures/net_f_ao_ao.jpg",
+      "map_d": "textures/net_f_c_a.png"
+    },
+    "283267c4-7178-408f-b451-edd1e0b8c82e": {
+      "map_Kd": "textures/leopard_2a4m_can_turret_c_ger_camo_bronzegruen.jpg",
+      "map_Ks": "textures/leopard_2a4m_can_turret_n_s.jpg",
+      "map_normal": "textures/leopard_2a4m_can_turret_n_n.jpg",
+      "map_ao": "textures/leopard_2a4m_can_turret_ao_ao.jpg"
+    },
+    "91e6cf70-a751-4180-91d5-a418efd5e16f": {
+      "map_Kd": "textures/leopard_2a4m_can_turret_c_ger_camo_bronzegruen.jpg",
+      "map_Ks": "textures/leopard_2a4m_can_turret_n_s.jpg",
+      "map_normal": "textures/leopard_2a4m_can_turret_n_n.jpg",
+      "map_ao": "textures/leopard_2a4m_can_turret_ao_ao.jpg"
+    },
+    "e5e2d192-1cda-4d91-b95e-9e3e3845fa33": {
+      "d": "0.15",
+      "map_Kd": "textures/side_glass_c.jpg",
+      "map_Ks": "textures/side_glass_n_s.jpg",
+      "map_normal": "textures/side_glass_n_n.jpg",
+      "map_d": "textures/side_glass_c_a.png"
+    },
+    "8930d211-166d-4185-b374-5d8d61bf39b9": {
+      "map_Kd": "textures/net_c_c.jpg",
+      "map_Ks": "textures/net_c_n_s.jpg",
+      "map_normal": "textures/net_c_n_n.jpg",
+      "map_ao": "textures/net_c_ao_ao.jpg",
+      "map_d": "textures/net_c_c_a.png"
+    },
+    "ce4a6d05-9d8c-451a-b503-c3a40a58f0bb": {
+      "map_Kd": "textures/leopard_2a4m_can_gun_c_ger_camo_bronzegruen.jpg",
+      "map_Ks": "textures/leopard_2a4m_can_gun_n_s.jpg",
+      "map_normal": "textures/leopard_2a4m_can_gun_n_n.jpg",
+      "map_ao": "textures/leopard_2a4m_can_gun_ao_ao.jpg"
+    },
+    "9d320837-28dd-4428-8f67-bbb7650673ac": {
+      "map_Kd": "textures/smooth_barrel_a_c.jpg",
+      "map_Ks": "textures/smooth_barrel_a_n_s.jpg",
+      "map_normal": "textures/smooth_barrel_a_n_n.jpg",
+      "map_ao": "textures/smooth_barrel_a_n_ao.jpg"
+    },
+    "58c053e4-a10a-487d-a56b-1b6a35d1ac8d": {
+      "map_Kd": "textures/mg_l37a1_c.jpg",
+      "map_Ks": "textures/mg_l37a1_n_s.jpg",
+      "map_normal": "textures/mg_l37a1_n_n.jpg",
+      "map_ao": "textures/mg_l37a1_n_ao.jpg"
+    },
+    "ecc42911-affe-410e-a233-17ee91775d28": {
+      "map_Kd": "textures/mg_mount_strv_122b_c_ger_camo_bronzegruen.jpg",
+      "map_Ks": "textures/mg_mount_strv_122b_n_s.jpg",
+      "map_normal": "textures/mg_mount_strv_122b_n_n.jpg",
+      "map_ao": "textures/mg_mount_strv_122b_ao_ao.jpg"
+    },
+    "421250de-2d1c-43e7-ab16-d84f98eb0f64": {
+      "map_Kd": "textures/leopard_2a4m_can_gun_c_ger_camo_bronzegruen.jpg",
+      "map_Ks": "textures/leopard_2a4m_can_gun_n_s.jpg",
+      "map_normal": "textures/leopard_2a4m_can_gun_n_n.jpg",
+      "map_ao": "textures/leopard_2a4m_can_gun_ao_ao.jpg"
+    }
+  },
+  "classify_detail": [
+    {
+      "name": "vehicle#ammo_84",
+      "group": "turret",
+      "material": "52054b82-8197-4326-8d78-dca3d050ffed",
+      "order": 84,
+      "bbox": [
+        0.906,
+        2.823,
+        -0.365,
+        1.172,
+        2.853,
+        -0.178
+      ]
+    },
+    {
+      "name": "vehicle#antenna_01_123",
+      "group": "turret",
+      "material": "283267c4-7178-408f-b451-edd1e0b8c82e",
+      "order": 123,
+      "bbox": [
+        1.035,
+        3.158,
+        -1.908,
+        1.043,
+        5.11,
+        -1.9
+      ]
+    },
+    {
+      "name": "vehicle#antenna_02_124",
+      "group": "turret",
+      "material": "283267c4-7178-408f-b451-edd1e0b8c82e",
+      "order": 124,
+      "bbox": [
+        1.018,
+        3.158,
+        -2.423,
+        1.025,
+        5.11,
+        -2.416
+      ]
+    },
+    {
+      "name": "vehicle#antenna_03_122",
+      "group": "turret",
+      "material": "283267c4-7178-408f-b451-edd1e0b8c82e",
+      "order": 122,
+      "bbox": [
+        -0.99,
+        3.158,
+        -1.908,
+        -0.983,
+        5.11,
+        -1.9
+      ]
+    },
+    {
+      "name": "vehicle#antenna_04_87",
+      "group": "turret",
+      "material": "283267c4-7178-408f-b451-edd1e0b8c82e",
+      "order": 87,
+      "bbox": [
+        -0.972,
+        3.158,
+        -2.423,
+        -0.965,
+        5.11,
+        -2.416
+      ]
+    },
+    {
+      "name": "vehicle#bone_gun_107",
+      "group": "gun",
+      "material": "ce4a6d05-9d8c-451a-b503-c3a40a58f0bb",
+      "order": 107,
+      "bbox": [
+        -0.468,
+        1.712,
+        1.139,
+        0.478,
+        2.374,
+        2.733
+      ]
+    },
+    {
+      "name": "vehicle#bone_mg_aa_v_01_120",
+      "group": "turret",
+      "material": "58c053e4-a10a-487d-a56b-1b6a35d1ac8d",
+      "order": 120,
+      "bbox": [
+        0.797,
+        2.664,
+        -0.758,
+        0.936,
+        2.898,
+        0.497
+      ]
+    },
+    {
+      "name": "vehicle#bone_mg_gun_twin_111",
+      "group": "gun",
+      "material": "58c053e4-a10a-487d-a56b-1b6a35d1ac8d",
+      "order": 111,
+      "bbox": [
+        0.22,
+        1.966,
+        0.699,
+        0.36,
+        2.2,
+        1.954
+      ]
+    },
+    {
+      "name": "vehicle#bone_turret_88",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 88,
+      "bbox": [
+        -1.43,
+        0.778,
+        -3.129,
+        1.662,
+        3.158,
+        2.738
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_01_9",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 9,
+      "bbox": [
+        1.704,
+        0.945,
+        3.249,
+        1.953,
+        1.423,
+        3.783
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_02_11",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 11,
+      "bbox": [
+        1.64,
+        0.838,
+        2.645,
+        1.953,
+        1.506,
+        3.246
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_03_12",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 12,
+      "bbox": [
+        1.639,
+        0.948,
+        2.045,
+        1.953,
+        1.6,
+        2.642
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_04_17",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 17,
+      "bbox": [
+        1.642,
+        0.948,
+        1.433,
+        1.953,
+        1.671,
+        2.043
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_05_18",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 18,
+      "bbox": [
+        1.642,
+        0.839,
+        0.283,
+        1.954,
+        1.67,
+        1.43
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_06_19",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 19,
+      "bbox": [
+        1.642,
+        0.85,
+        -0.924,
+        1.954,
+        1.696,
+        0.348
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_07_32",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 32,
+      "bbox": [
+        1.683,
+        0.91,
+        -1.198,
+        1.708,
+        1.304,
+        -0.889
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_08_31",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 31,
+      "bbox": [
+        1.683,
+        0.707,
+        -2.233,
+        1.708,
+        1.304,
+        -1.198
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_09_33",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 33,
+      "bbox": [
+        1.683,
+        0.91,
+        -2.93,
+        1.708,
+        1.304,
+        -2.064
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_10_34",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 34,
+      "bbox": [
+        1.683,
+        1.099,
+        -3.795,
+        1.708,
+        1.304,
+        -2.93
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_11_100",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 100,
+      "bbox": [
+        1.173,
+        1.724,
+        0.264,
+        1.59,
+        2.458,
+        1.567
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_11_net_116",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 116,
+      "bbox": [
+        1.188,
+        1.724,
+        0.264,
+        1.643,
+        2.495,
+        1.389
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_12_93",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 93,
+      "bbox": [
+        1.182,
+        1.723,
+        -0.751,
+        1.663,
+        2.469,
+        0.273
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_12_net_112",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 112,
+      "bbox": [
+        1.18,
+        1.728,
+        -0.752,
+        1.674,
+        2.527,
+        0.272
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_13_102",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 102,
+      "bbox": [
+        1.365,
+        1.847,
+        -2.118,
+        1.649,
+        2.449,
+        -0.748
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_l_13_net_106",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 106,
+      "bbox": [
+        1.365,
+        1.828,
+        -2.063,
+        1.699,
+        2.496,
+        -0.748
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_01_8",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 8,
+      "bbox": [
+        -1.954,
+        0.945,
+        3.249,
+        -1.706,
+        1.423,
+        3.783
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_02_10",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 10,
+      "bbox": [
+        -1.955,
+        0.838,
+        2.645,
+        -1.641,
+        1.506,
+        3.246
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_03_13",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 13,
+      "bbox": [
+        -1.955,
+        0.948,
+        2.045,
+        -1.641,
+        1.6,
+        2.642
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_04_14",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 14,
+      "bbox": [
+        -1.955,
+        0.948,
+        1.433,
+        -1.643,
+        1.671,
+        2.043
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_05_15",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 15,
+      "bbox": [
+        -1.955,
+        0.948,
+        0.341,
+        -1.652,
+        1.671,
+        1.43
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_06_16",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 16,
+      "bbox": [
+        -1.955,
+        0.948,
+        -0.754,
+        -1.664,
+        1.696,
+        0.338
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_07_28",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 28,
+      "bbox": [
+        -1.709,
+        0.91,
+        -1.198,
+        -1.683,
+        1.304,
+        -0.718
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_08_27",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 27,
+      "bbox": [
+        -1.709,
+        0.707,
+        -2.233,
+        -1.683,
+        1.304,
+        -1.198
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_09_29",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 29,
+      "bbox": [
+        -1.709,
+        0.91,
+        -2.93,
+        -1.683,
+        1.304,
+        -2.064
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_10_30",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 30,
+      "bbox": [
+        -1.709,
+        1.099,
+        -3.795,
+        -1.683,
+        1.304,
+        -2.93
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_11_97",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 97,
+      "bbox": [
+        -1.684,
+        1.74,
+        0.131,
+        -1.265,
+        2.465,
+        1.528
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_11_net_114",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 114,
+      "bbox": [
+        -1.73,
+        1.731,
+        0.126,
+        -1.272,
+        2.502,
+        1.342
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_12_101",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 101,
+      "bbox": [
+        -1.694,
+        1.74,
+        -0.846,
+        -1.302,
+        2.472,
+        0.121
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_12_net_104",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 104,
+      "bbox": [
+        -1.754,
+        1.746,
+        -0.846,
+        -1.313,
+        2.517,
+        0.121
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_13_94",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 94,
+      "bbox": [
+        -1.709,
+        1.873,
+        -2.06,
+        -1.337,
+        2.467,
+        -0.824
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_13_net_105",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 105,
+      "bbox": [
+        -1.751,
+        1.869,
+        -2.013,
+        -1.337,
+        2.517,
+        -0.826
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_14_net_103",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 103,
+      "bbox": [
+        -1.349,
+        1.692,
+        -3.186,
+        1.274,
+        2.757,
+        2.764
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_15_net_85",
+      "group": "hull",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 85,
+      "bbox": [
+        -2.03,
+        0.899,
+        -3.91,
+        2.031,
+        1.811,
+        3.806
+      ]
+    },
+    {
+      "name": "vehicle#ex_armor_r_16_net_118",
+      "group": "turret",
+      "material": "c555da14-031b-4f55-830b-84a3557b745c",
+      "order": 118,
+      "bbox": [
+        -1.055,
+        2.65,
+        -0.0,
+        -0.591,
+        2.901,
+        0.39
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_01_126",
+      "group": "turret",
+      "material": "421250de-2d1c-43e7-ab16-d84f98eb0f64",
+      "order": 126,
+      "bbox": [
+        -0.169,
+        1.828,
+        2.376,
+        0.166,
+        2.171,
+        2.636
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_02_125",
+      "group": "turret",
+      "material": "421250de-2d1c-43e7-ab16-d84f98eb0f64",
+      "order": 125,
+      "bbox": [
+        -0.487,
+        2.316,
+        1.238,
+        0.521,
+        2.406,
+        1.528
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_03_36",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 36,
+      "bbox": [
+        1.287,
+        1.723,
+        -3.63,
+        1.534,
+        1.832,
+        -2.565
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_04_37",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 37,
+      "bbox": [
+        1.12,
+        1.736,
+        -3.86,
+        1.367,
+        1.845,
+        -2.795
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_05_22",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 22,
+      "bbox": [
+        -1.967,
+        1.309,
+        -4.235,
+        1.966,
+        1.814,
+        -3.899
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_06_92",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 92,
+      "bbox": [
+        -1.553,
+        1.826,
+        -3.454,
+        1.624,
+        2.433,
+        -2.162
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_l_01_2",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 2,
+      "bbox": [
+        0.547,
+        1.06,
+        3.481,
+        0.73,
+        1.256,
+        3.719
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_l_02_45",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 45,
+      "bbox": [
+        0.944,
+        1.056,
+        3.54,
+        1.711,
+        1.345,
+        3.782
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_l_03_39",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 39,
+      "bbox": [
+        1.533,
+        1.43,
+        2.537,
+        1.852,
+        1.613,
+        3.123
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_l_04_21",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 21,
+      "bbox": [
+        1.674,
+        0.883,
+        -4.176,
+        1.963,
+        1.723,
+        -0.995
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_l_05_26",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 26,
+      "bbox": [
+        1.019,
+        0.592,
+        -3.87,
+        1.673,
+        1.12,
+        -3.719
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_l_06_24",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 24,
+      "bbox": [
+        0.785,
+        0.692,
+        -4.261,
+        1.377,
+        1.376,
+        -4.112
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_l_07_96",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 96,
+      "bbox": [
+        0.68,
+        1.873,
+        -3.129,
+        1.41,
+        2.426,
+        -2.275
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_r_01_3",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 3,
+      "bbox": [
+        -0.723,
+        1.06,
+        3.481,
+        -0.54,
+        1.256,
+        3.719
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_r_02_44",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 44,
+      "bbox": [
+        -1.713,
+        1.056,
+        3.54,
+        -0.943,
+        1.345,
+        3.782
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_r_03_38",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 38,
+      "bbox": [
+        -1.854,
+        1.43,
+        2.537,
+        -1.535,
+        1.613,
+        3.123
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_r_04_20",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 20,
+      "bbox": [
+        -1.963,
+        0.883,
+        -4.176,
+        -1.646,
+        1.723,
+        -0.995
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_r_05_25",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 25,
+      "bbox": [
+        -1.673,
+        0.592,
+        -3.87,
+        -1.02,
+        1.12,
+        -3.719
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_r_06_23",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 23,
+      "bbox": [
+        -1.377,
+        0.692,
+        -4.262,
+        -0.785,
+        1.376,
+        -4.112
+      ]
+    },
+    {
+      "name": "vehicle#ex_decor_r_07_95",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 95,
+      "bbox": [
+        -1.34,
+        1.873,
+        -3.128,
+        -0.61,
+        2.414,
+        -2.275
+      ]
+    },
+    {
+      "name": "vehicle#ex_lantern_l_01_1",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 1,
+      "bbox": [
+        0.747,
+        1.158,
+        3.368,
+        0.952,
+        1.377,
+        3.583
+      ]
+    },
+    {
+      "name": "vehicle#ex_lantern_r_01_0",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 0,
+      "bbox": [
+        -0.954,
+        1.156,
+        3.387,
+        -0.748,
+        1.375,
+        3.602
+      ]
+    },
+    {
+      "name": "vehicle#gun_barrel_109",
+      "group": "gun",
+      "material": "ce4a6d05-9d8c-451a-b503-c3a40a58f0bb",
+      "order": 109,
+      "bbox": [
+        -0.271,
+        1.638,
+        -0.159,
+        0.307,
+        2.211,
+        5.543
+      ]
+    },
+    {
+      "name": "vehicle#gun_barrel_net_110",
+      "group": "gun",
+      "material": "c555da14-031b-4f55-830b-84a3557b745c",
+      "order": 110,
+      "bbox": [
+        -0.23,
+        1.824,
+        2.982,
+        0.213,
+        2.247,
+        5.347
+      ]
+    },
+    {
+      "name": "vehicle#gun_mask_net_108",
+      "group": "gun",
+      "material": "c555da14-031b-4f55-830b-84a3557b745c",
+      "order": 108,
+      "bbox": [
+        -0.483,
+        1.836,
+        1.524,
+        0.478,
+        2.378,
+        2.776
+      ]
+    },
+    {
+      "name": "vehicle#hatch_01_35",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 35,
+      "bbox": [
+        -1.262,
+        1.46,
+        1.636,
+        -0.304,
+        1.665,
+        2.508
+      ]
+    },
+    {
+      "name": "vehicle#hatch_02_43",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 43,
+      "bbox": [
+        -1.705,
+        1.358,
+        -2.346,
+        -1.646,
+        1.616,
+        -1.543
+      ]
+    },
+    {
+      "name": "vehicle#hatch_03_42",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 42,
+      "bbox": [
+        -1.703,
+        1.41,
+        -3.362,
+        -1.644,
+        1.657,
+        -2.557
+      ]
+    },
+    {
+      "name": "vehicle#hatch_04_41",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 41,
+      "bbox": [
+        1.631,
+        1.355,
+        -0.89,
+        1.686,
+        1.65,
+        0.176
+      ]
+    },
+    {
+      "name": "vehicle#hatch_05_40",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 40,
+      "bbox": [
+        1.647,
+        1.358,
+        -2.346,
+        1.706,
+        1.616,
+        -1.543
+      ]
+    },
+    {
+      "name": "vehicle#hatch_06_99",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 99,
+      "bbox": [
+        -1.592,
+        1.731,
+        1.223,
+        -1.288,
+        2.336,
+        2.137
+      ]
+    },
+    {
+      "name": "vehicle#hatch_06_net_115",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 115,
+      "bbox": [
+        -1.574,
+        1.727,
+        1.201,
+        -1.311,
+        2.366,
+        2.113
+      ]
+    },
+    {
+      "name": "vehicle#hatch_07_98",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 98,
+      "bbox": [
+        1.198,
+        1.725,
+        1.262,
+        1.502,
+        2.33,
+        2.176
+      ]
+    },
+    {
+      "name": "vehicle#hatch_07_net_113",
+      "group": "turret",
+      "material": "fc4e04d2-e765-478f-9ae5-8c900aba7b1a",
+      "order": 113,
+      "bbox": [
+        1.227,
+        1.72,
+        1.238,
+        1.505,
+        2.361,
+        2.152
+      ]
+    },
+    {
+      "name": "vehicle#hatch_08_89",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 89,
+      "bbox": [
+        -0.874,
+        2.471,
+        -0.617,
+        -0.329,
+        2.634,
+        0.037
+      ]
+    },
+    {
+      "name": "vehicle#hatch_09_91",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 91,
+      "bbox": [
+        0.276,
+        2.421,
+        -0.595,
+        0.827,
+        2.603,
+        0.036
+      ]
+    },
+    {
+      "name": "vehicle#mg_mount_h_119",
+      "group": "turret",
+      "material": "ecc42911-affe-410e-a233-17ee91775d28",
+      "order": 119,
+      "bbox": [
+        0.826,
+        2.615,
+        -0.453,
+        1.277,
+        2.915,
+        -0.068
+      ]
+    },
+    {
+      "name": "vehicle#mg_mount_v_121",
+      "group": "turret",
+      "material": "ecc42911-affe-410e-a233-17ee91775d28",
+      "order": 121,
+      "bbox": [
+        0.858,
+        2.666,
+        -0.569,
+        0.988,
+        2.836,
+        0.101
+      ]
+    },
+    {
+      "name": "vehicle#optic_commander_117",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 117,
+      "bbox": [
+        -1.046,
+        2.623,
+        0.032,
+        -0.607,
+        2.846,
+        0.48
+      ]
+    },
+    {
+      "name": "vehicle#suspension_l_01_70",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 70,
+      "bbox": [
+        1.091,
+        0.33,
+        2.208,
+        1.359,
+        0.8,
+        2.89
+      ]
+    },
+    {
+      "name": "vehicle#suspension_l_02_72",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 72,
+      "bbox": [
+        1.092,
+        0.33,
+        1.353,
+        1.359,
+        0.734,
+        2.007
+      ]
+    },
+    {
+      "name": "vehicle#suspension_l_03_74",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 74,
+      "bbox": [
+        1.092,
+        0.33,
+        0.564,
+        1.359,
+        0.734,
+        1.218
+      ]
+    },
+    {
+      "name": "vehicle#suspension_l_04_76",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 76,
+      "bbox": [
+        1.092,
+        0.33,
+        -0.209,
+        1.359,
+        0.734,
+        0.446
+      ]
+    },
+    {
+      "name": "vehicle#suspension_l_05_78",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 78,
+      "bbox": [
+        1.092,
+        0.33,
+        -1.057,
+        1.359,
+        0.734,
+        -0.403
+      ]
+    },
+    {
+      "name": "vehicle#suspension_l_06_80",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 80,
+      "bbox": [
+        1.092,
+        0.33,
+        -1.891,
+        1.359,
+        0.734,
+        -1.237
+      ]
+    },
+    {
+      "name": "vehicle#suspension_l_07_82",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 82,
+      "bbox": [
+        1.092,
+        0.33,
+        -2.735,
+        1.359,
+        0.734,
+        -2.081
+      ]
+    },
+    {
+      "name": "vehicle#suspension_r_01_57",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 57,
+      "bbox": [
+        -1.363,
+        0.33,
+        2.436,
+        -1.095,
+        0.827,
+        3.102
+      ]
+    },
+    {
+      "name": "vehicle#suspension_r_02_58",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 58,
+      "bbox": [
+        -1.363,
+        0.33,
+        1.6,
+        -1.096,
+        0.734,
+        2.254
+      ]
+    },
+    {
+      "name": "vehicle#suspension_r_03_60",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 60,
+      "bbox": [
+        -1.363,
+        0.33,
+        0.779,
+        -1.096,
+        0.734,
+        1.434
+      ]
+    },
+    {
+      "name": "vehicle#suspension_r_04_62",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 62,
+      "bbox": [
+        -1.363,
+        0.33,
+        0.027,
+        -1.096,
+        0.734,
+        0.682
+      ]
+    },
+    {
+      "name": "vehicle#suspension_r_05_64",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 64,
+      "bbox": [
+        -1.363,
+        0.33,
+        -0.82,
+        -1.096,
+        0.734,
+        -0.166
+      ]
+    },
+    {
+      "name": "vehicle#suspension_r_06_66",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 66,
+      "bbox": [
+        -1.363,
+        0.33,
+        -1.671,
+        -1.096,
+        0.734,
+        -1.017
+      ]
+    },
+    {
+      "name": "vehicle#suspension_r_07_68",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 68,
+      "bbox": [
+        -1.363,
+        0.33,
+        -2.519,
+        -1.096,
+        0.734,
+        -1.864
+      ]
+    },
+    {
+      "name": "vehicle#track_l_47",
+      "group": "running",
+      "material": "d9a77e66-fa51-4dc7-8342-0ca32f70fa73",
+      "order": 47,
+      "bbox": [
+        1.038,
+        -0.011,
+        -3.606,
+        1.68,
+        1.292,
+        3.525
+      ]
+    },
+    {
+      "name": "vehicle#track_r_46",
+      "group": "running",
+      "material": "0fa2080f-7b5e-4703-b507-35f702feacf5",
+      "order": 46,
+      "bbox": [
+        -1.684,
+        -0.012,
+        -3.606,
+        -1.041,
+        1.291,
+        3.525
+      ]
+    },
+    {
+      "name": "vehicle#turret_02_90",
+      "group": "turret",
+      "material": "91e6cf70-a751-4180-91d5-a418efd5e16f",
+      "order": 90,
+      "bbox": [
+        0.79,
+        2.565,
+        -0.446,
+        0.939,
+        2.662,
+        -0.129
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_01_71",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 71,
+      "bbox": [
+        1.192,
+        0.076,
+        1.935,
+        1.526,
+        0.773,
+        2.632
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_02_73",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 73,
+      "bbox": [
+        1.192,
+        0.076,
+        1.079,
+        1.526,
+        0.773,
+        1.776
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_03_75",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 75,
+      "bbox": [
+        1.192,
+        0.076,
+        0.29,
+        1.526,
+        0.773,
+        0.986
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_04_77",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 77,
+      "bbox": [
+        1.192,
+        0.076,
+        -0.482,
+        1.526,
+        0.773,
+        0.214
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_05_79",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 79,
+      "bbox": [
+        1.192,
+        0.076,
+        -1.331,
+        1.526,
+        0.773,
+        -0.634
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_06_81",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 81,
+      "bbox": [
+        1.192,
+        0.076,
+        -2.165,
+        1.526,
+        0.773,
+        -1.468
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_07_83",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 83,
+      "bbox": [
+        1.192,
+        0.076,
+        -3.009,
+        1.526,
+        0.773,
+        -2.312
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_drive_7",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 7,
+      "bbox": [
+        1.042,
+        0.538,
+        -3.567,
+        1.677,
+        1.251,
+        -2.861
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_front_5",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 5,
+      "bbox": [
+        1.194,
+        0.625,
+        2.896,
+        1.52,
+        1.166,
+        3.437
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_top_01_55",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 55,
+      "bbox": [
+        1.436,
+        0.972,
+        1.797,
+        1.593,
+        1.204,
+        2.028
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_top_02_54",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 54,
+      "bbox": [
+        1.209,
+        0.972,
+        0.981,
+        1.366,
+        1.204,
+        1.213
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_top_03_53",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 53,
+      "bbox": [
+        1.436,
+        0.972,
+        -0.549,
+        1.593,
+        1.204,
+        -0.317
+      ]
+    },
+    {
+      "name": "vehicle#wheel_l_top_04_52",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 52,
+      "bbox": [
+        1.211,
+        0.972,
+        -2.221,
+        1.367,
+        1.204,
+        -1.989
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_01_56",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 56,
+      "bbox": [
+        -1.53,
+        0.076,
+        2.162,
+        -1.196,
+        0.773,
+        2.859
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_02_59",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 59,
+      "bbox": [
+        -1.53,
+        0.076,
+        1.326,
+        -1.196,
+        0.773,
+        2.022
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_03_61",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 61,
+      "bbox": [
+        -1.53,
+        0.076,
+        0.506,
+        -1.196,
+        0.773,
+        1.203
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_04_63",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 63,
+      "bbox": [
+        -1.53,
+        0.076,
+        -0.247,
+        -1.196,
+        0.773,
+        0.45
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_05_65",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 65,
+      "bbox": [
+        -1.53,
+        0.076,
+        -1.095,
+        -1.196,
+        0.773,
+        -0.398
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_06_67",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 67,
+      "bbox": [
+        -1.53,
+        0.076,
+        -1.944,
+        -1.196,
+        0.773,
+        -1.248
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_07_69",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 69,
+      "bbox": [
+        -1.53,
+        0.076,
+        -2.792,
+        -1.196,
+        0.773,
+        -2.095
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_drive_6",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 6,
+      "bbox": [
+        -1.681,
+        0.538,
+        -3.567,
+        -1.046,
+        1.251,
+        -2.861
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_front_4",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 4,
+      "bbox": [
+        -1.523,
+        0.625,
+        2.896,
+        -1.196,
+        1.166,
+        3.437
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_top_01_51",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 51,
+      "bbox": [
+        -1.597,
+        0.972,
+        1.919,
+        -1.44,
+        1.204,
+        2.15
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_top_02_50",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 50,
+      "bbox": [
+        -1.37,
+        0.972,
+        1.103,
+        -1.213,
+        1.204,
+        1.335
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_top_03_49",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 49,
+      "bbox": [
+        -1.597,
+        0.972,
+        -0.427,
+        -1.44,
+        1.204,
+        -0.195
+      ]
+    },
+    {
+      "name": "vehicle#wheel_r_top_04_48",
+      "group": "running",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 48,
+      "bbox": [
+        -1.371,
+        0.972,
+        -2.099,
+        -1.214,
+        1.204,
+        -1.867
+      ]
+    },
+    {
+      "name": "vehicle#x_root_86",
+      "group": "hull",
+      "material": "63642590-773a-4a9a-ad9e-583cf8fa0ada",
+      "order": 86,
+      "bbox": [
+        -1.726,
+        0.443,
+        -4.214,
+        1.725,
+        1.892,
+        3.607
+      ]
+    }
+  ]
+}

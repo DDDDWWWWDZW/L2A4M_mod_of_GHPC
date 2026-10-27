@@ -1,0 +1,20 @@
+name	albedo	normal	spec	ao	alpha	transparent
+63642590-773a-4a9a-ad9e-583cf8fa0ada	textures/leopard_2a4m_can_body_c_ger_camo_bronzegruen.jpg	textures/leopard_2a4m_can_body_n_n.jpg	textures/leopard_2a4m_can_body_n_s.jpg	textures/leopard_2a4m_can_body_ao_ao.jpg		0
+5d04eddb-5a28-40a2-acc0-a40f1619f626	textures/headlight_glass_c.jpg	textures/headlight_glass_n_n.jpg	textures/headlight_glass_n_s.jpg	textures/headlight_glass_n_ao.jpg		0
+52dafb15-5fdf-4e2b-bddb-7bc0290056fe	textures/headlight_glass_c.jpg	textures/headlight_glass_n_n.jpg	textures/headlight_glass_n_s.jpg		textures/headlight_glass_c_a.png	1
+0fa2080f-7b5e-4703-b507-35f702feacf5	textures/ger_leopard_2a4_track_c.jpg	textures/ger_leopard_2a4_track_n_n.jpg	textures/ger_leopard_2a4_track_n_s.jpg	textures/ger_leopard_2a4_track_ao_ao.jpg	textures/ger_leopard_2a4_track_c_a.png	1
+d9a77e66-fa51-4dc7-8342-0ca32f70fa73	textures/ger_leopard_2a4_track_c.jpg	textures/ger_leopard_2a4_track_n_n.jpg	textures/ger_leopard_2a4_track_n_s.jpg	textures/ger_leopard_2a4_track_ao_ao.jpg	textures/ger_leopard_2a4_track_c_a.png	1
+52054b82-8197-4326-8d78-dca3d050ffed	textures/mg_l37a1_ammo_c.jpg	textures/mg_l37a1_ammo_n_n.jpg	textures/mg_l37a1_ammo_n_s.jpg	textures/mg_l37a1_ammo_n_ao.jpg		0
+c555da14-031b-4f55-830b-84a3557b745c	textures/leopard_2a4m_can_camo_net_c_ger_camo_bronzegruen.jpg	textures/leopard_2a4m_can_camo_net_n_n.jpg	textures/leopard_2a4m_can_camo_net_n_s.jpg	textures/leopard_2a4m_can_camo_net_ao_ao.jpg		0
+2eea4d2c-8c77-436c-ac53-78b6211f954a	textures/brown_camo_net_b_c_green.jpg	textures/camo_net_b_n_n.jpg	textures/camo_net_b_n_s_soft.jpg	textures/camo_net_b_ao_ao.jpg		0
+fc4e04d2-e765-478f-9ae5-8c900aba7b1a	textures/brown_camo_net_c_c_green.jpg	textures/camo_net_c_n_n.jpg	textures/camo_net_c_n_s_soft.jpg	textures/camo_net_c_ao_ao.jpg		0
+b3b3964e-d204-4c86-a32a-66b9a028fd6f	textures/net_f_c.jpg	textures/net_f_n_n.jpg	textures/net_f_n_s.jpg	textures/net_f_ao_ao.jpg	textures/net_f_c_a.png	1
+283267c4-7178-408f-b451-edd1e0b8c82e	textures/leopard_2a4m_can_turret_c_ger_camo_bronzegruen.jpg	textures/leopard_2a4m_can_turret_n_n.jpg	textures/leopard_2a4m_can_turret_n_s.jpg	textures/leopard_2a4m_can_turret_ao_ao.jpg		0
+91e6cf70-a751-4180-91d5-a418efd5e16f	textures/leopard_2a4m_can_turret_c_ger_camo_bronzegruen.jpg	textures/leopard_2a4m_can_turret_n_n.jpg	textures/leopard_2a4m_can_turret_n_s.jpg	textures/leopard_2a4m_can_turret_ao_ao.jpg		0
+e5e2d192-1cda-4d91-b95e-9e3e3845fa33	textures/side_glass_c.jpg	textures/side_glass_n_n.jpg	textures/side_glass_n_s.jpg		textures/side_glass_c_a.png	1
+8930d211-166d-4185-b374-5d8d61bf39b9	textures/net_c_c.jpg	textures/net_c_n_n.jpg	textures/net_c_n_s.jpg	textures/net_c_ao_ao.jpg	textures/net_c_c_a.png	1
+ce4a6d05-9d8c-451a-b503-c3a40a58f0bb	textures/leopard_2a4m_can_gun_c_ger_camo_bronzegruen.jpg	textures/leopard_2a4m_can_gun_n_n.jpg	textures/leopard_2a4m_can_gun_n_s.jpg	textures/leopard_2a4m_can_gun_ao_ao.jpg		0
+9d320837-28dd-4428-8f67-bbb7650673ac	textures/smooth_barrel_a_c.jpg	textures/smooth_barrel_a_n_n.jpg	textures/smooth_barrel_a_n_s.jpg	textures/smooth_barrel_a_n_ao.jpg		0
+58c053e4-a10a-487d-a56b-1b6a35d1ac8d	textures/mg_l37a1_c.jpg	textures/mg_l37a1_n_n.jpg	textures/mg_l37a1_n_s.jpg	textures/mg_l37a1_n_ao.jpg		0
+ecc42911-affe-410e-a233-17ee91775d28	textures/mg_mount_strv_122b_c_ger_camo_bronzegruen.jpg	textures/mg_mount_strv_122b_n_n.jpg	textures/mg_mount_strv_122b_n_s.jpg	textures/mg_mount_strv_122b_ao_ao.jpg		0
+421250de-2d1c-43e7-ab16-d84f98eb0f64	textures/leopard_2a4m_can_gun_c_ger_camo_bronzegruen.jpg	textures/leopard_2a4m_can_gun_n_n.jpg	textures/leopard_2a4m_can_gun_n_s.jpg	textures/leopard_2a4m_can_gun_ao_ao.jpg		0

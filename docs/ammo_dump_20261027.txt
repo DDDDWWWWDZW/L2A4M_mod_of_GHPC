@@ -1,0 +1,18 @@
+=== rounds in the loadout of LEO2A4M ===
+--- KEW-A1 APFSDS-T
+    Mass=4.000 MuzzleVelocity=1740.0 RhaPenetration=618.0
+    Coeff=0.3000 SectionalArea=0.000620 Caliber=120.0
+    NutationPenaltyDistance=100.0 SpallMultiplier=1.000 MinSpallRha=1.0 MaxSpallRha=12.0
+    TntEquivalentKg=0.000 CertainRicochetAngle=10.0 Normalize=True
+    ArmorOptimizations=0
+--- DM12A1 HEAT-FS-T
+    Mass=10.200 MuzzleVelocity=1140.0 RhaPenetration=560.0
+    Coeff=0.1900 SectionalArea=0.008660 Caliber=0.0
+    NutationPenaltyDistance=0.0 SpallMultiplier=1.250 MinSpallRha=1.0 MaxSpallRha=12.0
+    TntEquivalentKg=2.210 CertainRicochetAngle=3.0 Normalize=False
+    ArmorOptimizations=0
+
+penetration law: RhaPenetration * (v/v0)^2
+  plus nutation penalty while distance < NutationPenaltyDistance:
+  ratio *= 1 - 0.07 * (NutationPenaltyDistance - dist) / NutationPenaltyDistance
+drag: a = -1 * Coeff * SectionalArea * AirDensity / Mass * |v|^2 * v_hat + gravity

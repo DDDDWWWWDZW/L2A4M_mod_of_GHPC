@@ -1,0 +1,255 @@
+# Blender 4.5.0 MTL File: 'None'
+# www.blender.org
+
+newmtl 0fa2080f-7b5e-4703-b507-35f702feacf5.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd textures/ger_leopard_2a4_track_c.jpg
+map_d textures/ger_leopard_2a4_track_c_a.png
+map_Bump -bm 1.000000 textures/ger_leopard_2a4_track_n_n.jpg
+
+newmtl 283267c4-7178-408f-b451-edd1e0b8c82e.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_turret_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_turret_n_n.jpg
+
+newmtl 2eea4d2c-8c77-436c-ac53-78b6211f954a.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/brown_camo_net_b_c.jpg
+map_Bump -bm 1.000000 textures/camo_net_b_n_n.jpg
+
+newmtl 421250de-2d1c-43e7-ab16-d84f98eb0f64.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_gun_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_gun_n_n.jpg
+
+newmtl 52054b82-8197-4326-8d78-dca3d050ffed.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/mg_l37a1_ammo_c.jpg
+map_Bump -bm 1.000000 textures/mg_l37a1_ammo_n_n.jpg
+
+newmtl 52dafb15-5fdf-4e2b-bddb-7bc0290056fe.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd textures/headlight_glass_c.jpg
+map_d textures/headlight_glass_c_a.png
+map_Bump -bm 1.000000 textures/headlight_glass_n_n.jpg
+
+newmtl 58c053e4-a10a-487d-a56b-1b6a35d1ac8d.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/mg_l37a1_c.jpg
+map_Bump -bm 1.000000 textures/mg_l37a1_n_n.jpg
+
+newmtl 5d04eddb-5a28-40a2-acc0-a40f1619f626.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/headlight_glass_c.jpg
+map_Bump -bm 1.000000 textures/headlight_glass_n_n.jpg
+
+newmtl 63642590-773a-4a9a-ad9e-583cf8fa0ada.002
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_body_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_body_n_n.jpg
+
+newmtl 63642590-773a-4a9a-ad9e-583cf8fa0ada.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_body_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_body_n_n.jpg
+
+newmtl 8930d211-166d-4185-b374-5d8d61bf39b9.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd textures/net_c_c.jpg
+map_d textures/net_c_c_a.png
+map_Bump -bm 1.000000 textures/net_c_n_n.jpg
+
+newmtl 91e6cf70-a751-4180-91d5-a418efd5e16f.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_turret_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_turret_n_n.jpg
+
+newmtl 91e6cf70-a751-4180-91d5-a418efd5e16f.004
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_turret_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_turret_n_n.jpg
+
+newmtl 9d320837-28dd-4428-8f67-bbb7650673ac.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/smooth_barrel_a_c.jpg
+map_Bump -bm 1.000000 textures/smooth_barrel_a_n_n.jpg
+
+newmtl b3b3964e-d204-4c86-a32a-66b9a028fd6f.002
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd textures/net_f_c.jpg
+map_d textures/net_f_c_a.png
+map_Bump -bm 1.000000 textures/net_f_n_n.jpg
+
+newmtl b3b3964e-d204-4c86-a32a-66b9a028fd6f.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd textures/net_f_c.jpg
+map_d textures/net_f_c_a.png
+map_Bump -bm 1.000000 textures/net_f_n_n.jpg
+
+newmtl c555da14-031b-4f55-830b-84a3557b745c.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_camo_net_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_camo_net_n_n.jpg
+
+newmtl ce4a6d05-9d8c-451a-b503-c3a40a58f0bb.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_gun_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_gun_n_n.jpg
+
+newmtl ce4a6d05-9d8c-451a-b503-c3a40a58f0bb.004
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/leopard_2a4m_can_gun_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/leopard_2a4m_can_gun_n_n.jpg
+
+newmtl d9a77e66-fa51-4dc7-8342-0ca32f70fa73.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd textures/ger_leopard_2a4_track_c.jpg
+map_d textures/ger_leopard_2a4_track_c_a.png
+map_Bump -bm 1.000000 textures/ger_leopard_2a4_track_n_n.jpg
+
+newmtl e5e2d192-1cda-4d91-b95e-9e3e3845fa33.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd textures/side_glass_c.jpg
+map_d textures/side_glass_c_a.png
+map_Bump -bm 1.000000 textures/side_glass_n_n.jpg
+
+newmtl ecc42911-affe-410e-a233-17ee91775d28.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/mg_mount_strv_122b_c_ger_camo_bronzegruen.jpg
+map_Bump -bm 1.000000 textures/mg_mount_strv_122b_n_n.jpg
+
+newmtl fc4e04d2-e765-478f-9ae5-8c900aba7b1a.003
+Ns 159.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/brown_camo_net_c_c.jpg
+map_Bump -bm 1.000000 textures/camo_net_c_n_n.jpg

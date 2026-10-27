@@ -1,0 +1,19 @@
+﻿# build output
+bin/
+obj/
+*.dll
+*.pdb
+*.mdb
+
+# development leftovers
+src_backup*/
+*.bak
+*.bak2
+*.bak-*
+legacy/
+tools/metadump/bin/
+tools/metadump/obj/
+
+# game-side runtime files
+MelonPreferences.cfg*
+*.log
