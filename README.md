@@ -1,20 +1,21 @@
-# Leopard 2A4M — GHPC add-on mod
+# Leopard 2A4M for Gunner, HEAT, PC!
 
-把 War Thunder 的 **Leopard 2A4M** 模型做成 **Gunner, HEAT, PC!** 的可玩单位，并附带可配置的附加装甲、弹药与车长独立热像仪。
+A **Leopard 2A4M** (War Thunder model) playable in **Gunner, HEAT, PC!**, complete with 28 individually
+simulated add-on armour pieces, selectable 120 mm ammunition and a working commander's independent
+thermal viewer.
 
-A War Thunder-derived **Leopard 2A4M** for **Gunner, HEAT, PC!**, with add-on armour, configurable ammunition and a working commander's independent thermal viewer.
-
-- **Version / 版本**: 1.1.4
-- **Author / 作者**: DDDDWWWWDZW
-- **Game**: GHPC (Unity 2022.3) + MelonLoader 0.6.2 (net35)
-- **Donor unit / 母本**: `LEO2A3`（2A4 家族、带 EMES-15 热像仪的 prefab）
+- **Version**: 1.1.4
+- **Author**: DDDDWWWWDZW
+- **Game**: Gunner, HEAT, PC! (Unity 2022.3) + MelonLoader 0.6.2 (x64 / net35)
+- **Donor unit**: `LEO2A3` — the 2A4-family prefab that carries the EMES-15 thermal sight
 
 ---
 
-## Install / 安装
+## Installation
 
-1. 安装 **MelonLoader 0.6.2**（x64，net35）到 GHPC 根目录。
-2. 把以下内容放到游戏目录：
+1. Install **MelonLoader 0.6.2** (x64, net35) into the GHPC installation folder.
+2. Download `Leo2A4M-<version>.zip` from the [Releases](../../releases) page and extract it so the
+   layout becomes:
 
    ```text
    <GHPC>/Bin/Mods/Leo2A4M.dll
@@ -23,100 +24,113 @@ A War Thunder-derived **Leopard 2A4M** for **Gunner, HEAT, PC!**, with add-on ar
        Leo2A4M_GHPC_1.2.mtl
        materials.tsv
        parts.tsv
-       textures/                 (68 张)
+       textures/          (68 files)
    ```
 
-   或者直接解压 `Leo2A4M-1.1.4.zip` 到 `<GHPC>/Bin/Mods/`。
-
-3. 启动游戏，在车辆选择里选 **LEO2A4M**；进靶场（TR01 等）会自动在玩家旁刷一辆方便观察。
+3. Launch the game, pick **LEO2A4M** from the vehicle list. On a range map (TR01, TankRange, …) a
+   second 2A4M spawns next to the player so it can be inspected or shot at.
 
 ---
 
-## Features / 功能
+## Features
 
-### 附加装甲（28 块，独立损伤件）
+### Add-on armour — 28 independent damage pieces
 
-| 区域 | 块数 | KE / CE |
+| Area | Pieces | KE / CE |
 |---|---|---|
-| 炮塔正面楔形（`bone_t1/t2/t3`） | 3 | 140 / 200 |
-| 车体首上附加板（`hull_fupaa1`） | 1 | 50 / 300 |
-| 炮塔侧（`hatch_06/07`） | 2 | 30 / 60 |
-| 炮塔侧后（`ex_armor_l/r_13`） | 2 | 60 / 200 |
-| 炮塔侧中前（`ex_armor_l/r_11/12`） | 4 | 100 / 200 |
-| 车体侧裙（`ex_armor_l/r_01..06`） | 12 | 50 / 150 |
-| 隔栅（车体 3 + 炮塔 1） | 4 | 5 / 120 |
+| Turret front wedges (`bone_t1/2/3`) | 3 | 140 / 200 |
+| Hull front add-on plate (`hull_fupaa1`) | 1 | 50 / 300 |
+| Turret sides (`hatch_06/07`) | 2 | 30 / 60 |
+| Turret rear sides (`ex_armor_l/r_13`) | 2 | 60 / 200 |
+| Turret mid sides (`ex_armor_l/r_11/12`) | 4 | 100 / 200 |
+| Hull side skirts (`ex_armor_l/r_01..06`) | 12 | 50 / 150 |
+| Slat / grille armour (hull 3 + turret 1) | 4 | 5 / 120 |
 
-- 层 8 + `Penetrable`、非凸网格碰撞体、独立 codex（倍率 1）；
-- 常驻装甲（命中不消失），留弹痕/火花，AAR 内构可见。
+- Each piece is registered before the vehicle's `Awake`, placed on layer 8 (`Raycast Only`) with the
+  `Penetrable` tag and a non-convex mesh collider, and gets its own runtime armour codex.
+- They are **passive** add-on armour: hits leave decals and sparks, the pieces never detonate or
+  disappear, and they show up in the AAR / x-ray view as internal structure.
 
-### 弹药
+### Ammunition
 
-- 穿甲弹可选：**KEW-A1**（默认，618 mm）、**DM43**（580 mm）、**DM53**（650 mm，无视 30% 爆反）；
-- 破甲弹：原版 **DM12A1**；
-- 弹量、弹架布局、可见弹药模型完全沿用原版 L2A3 逻辑。
+- Kinetic rounds: **KEW-A1** (default, 618 mm), **DM43** (580 mm), **DM53** (650 mm, ignores 30 % of ERA effect).
+- Chemical round: the vanilla **DM12A1**.
+- Round counts, rack layout and the visible round models are left entirely to the vanilla L2A3 logic —
+  the mod only retunes the round itself.
 
-### 车长独立热像仪（CITV）
+### Commander's independent thermal viewer (CITV)
 
-- 默认**自由观察**（炮塔不动），按住**右键**接管炮塔/火炮；
-- 灵敏度、开关键位可配置。
+- Free observation by default — looking around does **not** move the turret.
+- Hold **right mouse** to take over the turret/gun through the sight.
+- Panning speed and the optional free-look key are configurable.
 
-### 其他
+### Extras
 
-- 车体首上复合装甲等级可配：**b**（原版 300/600）、**c**（读数 500/850）、**d**（读数 592/960）；
-- 涂装：Bronzegrun / Sand / Tricolor；
-- 备用瞄准镜视角自动隐藏车壳，避免被模型遮挡；
-- 靶场自动刷车（TR01 / TankRange 等场景）。
+- Hull front composite level: **b** (stock 300/600), **c** (reads 500/850), **d** (reads 592/960).
+- Paint schemes: Bronzegrun / Sand / Tricolor.
+- The auxiliary gunner sight no longer renders a black wall — the custom shell is hidden while that
+  optic is in use.
+- Automatic range spawn on TR01 / TankRange scenes.
 
 ---
 
-## Configuration / 配置
+## Configuration
 
-`<GHPC>/Bin/UserData/MelonPreferences.cfg` → `[Leo2A4M]`
+`<GHPC>/Bin/UserData/MelonPreferences.cfg` → section `[Leo2A4M]`
 
-| 配置项 | 默认 | 说明 |
+| Entry | Default | Description |
 |---|---|---|
-| `WT Running Gear` | false | 用 WT 负重轮/履带（贴合车体） |
-| `Vanilla Running Gear` | true | 保留原厂动画履带 |
-| `Take Control On Spawn` | true | 生成后直接接管 |
-| `CITV` | true | 车长独立热像仪 |
-| `Smooth CITV Panning` | true | CITV 平滑转动 |
-| `CITV Aim Sensitivity` | 0.32 | CITV 转动速度（1 = 原速） |
-| `CITV Free Look Key` | LeftAlt | 额外自由观察键 |
-| `Paint Scheme` | Bronzegrun | 涂装 |
-| `Hull Armour Level` | c | 首上等级 b/c/d |
-| `AP Ammo` | kewa1 | kewa1 / dm43 / dm53 |
+| `WT Running Gear` | `false` | Use the War Thunder wheels/tracks instead of the animated vanilla gear |
+| `Vanilla Running Gear` | `true` | Keep the animated vanilla running gear under the WT hull |
+| `Take Control On Spawn` | `true` | Put the player in the spawned 2A4M immediately |
+| `CITV` | `true` | Commander's independent thermal viewer |
+| `Smooth CITV Panning` | `true` | Smoothed panning for the CITV |
+| `CITV Aim Sensitivity` | `0.32` | CITV pan speed (`1` = untouched) |
+| `CITV Free Look Key` | `LeftAlt` | Extra free-look key |
+| `Paint Scheme` | `Bronzegrun` | Bronzegrun / Sand / Tricolor |
+| `Hull Armour Level` | `c` | Hull front composite level `b` / `c` / `d` |
+| `AP Ammo` | `kewa1` | `kewa1` / `dm43` / `dm53` |
 
 ---
 
-## Build / 构建
+## Building from source
 
 ```powershell
 cd src
 dotnet build -c Release
 ```
 
-`Leo2A4M.csproj` 通过 `GHPC_DIR` 定位游戏程序集，默认：
+`Leo2A4M.csproj` locates the game assemblies through `GHPC_DIR`:
 
 ```xml
 <GHPC_DIR>E:\SteamLibrary\steamapps\common\Gunner HEAT PC</GHPC_DIR>
 ```
 
-可覆盖：`dotnet build -c Release /p:GHPC_DIR="你的路径"`。
+Override it when building elsewhere:
+
+```powershell
+dotnet build -c Release /p:GHPC_DIR="C:\Path\To\Gunner HEAT PC"
+```
+
+Requires the .NET Framework 4.7.2 targeting pack and the publicized GHPC assemblies (handled by the
+`BepInEx.AssemblyPublicizer.MSBuild` package reference).
 
 ---
 
-## Docs / 文档
+## Repository layout
 
-- `docs/GHPC穿深衰减机制.md` —— 穿深随距离衰减的公式与实测数据（IL 级取证）
-- `docs/addon_armor_appendix.md` —— 附加装甲实现的经验附录
-- `docs/ammo_dump_20261027.txt` —— 游戏内实测的弹药弹道参数
+```text
+src/       mod sources + csproj
+assets/    model, materials.tsv, parts.tsv, textures/
+docs/      design notes (kept out of the published tree)
+```
 
 ---
 
-## Credits & disclaimer / 致谢与声明
+## Credits & disclaimer
 
-- 模型与贴图来自 **War Thunder**（Gaijin Entertainment）；
-- 游戏本体与 prefab 来自 **Gunner, HEAT, PC!**（Radian Simulations）；
-- 本仓库仅用于模组制作与学习交流，**不包含任何游戏本体文件**；使用前请自行合法拥有对应游戏。
-
-若相关权利人认为有不妥，请联系仓库作者处理。
+- Vehicle model and textures originate from **War Thunder** (Gaijin Entertainment).
+- The game and its prefabs belong to **Gunner, HEAT, PC!** (Radian Simulations).
+- This repository contains **no game files**; you need to own both games to use it.
+- Released for modding and educational purposes. If a rights holder objects, contact the author and
+  the content will be removed.
