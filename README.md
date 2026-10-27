@@ -122,7 +122,6 @@ Requires the .NET Framework 4.7.2 targeting pack and the publicized GHPC assembl
 ```text
 src/       mod sources + csproj
 assets/    model, materials.tsv, parts.tsv, textures/
-docs/      design notes (kept out of the published tree)
 ```
 
 ---
