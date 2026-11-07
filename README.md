@@ -34,7 +34,9 @@ DLL also works.)
 - L44 120 mm gun
 - KEW-A1 / DM43/ DM53  AP
 - Armor data and armor damage model adapted for the L2A4M
-- Gen-3 gunner thermals 
+- Gen-3 gunner thermals
+<img width="1011" height="562" alt="dc0f6991bb20b7636bcce208c8fb26b0" src="https://github.com/user-attachments/assets/83bd9d9e-8bd4-4753-85e7-1eb546ed1dc8" />
+
 
 
 Relevant entries:
