@@ -31,8 +31,8 @@ tables, CITV display — is inside the pack and is loaded into memory; nothing i
 - L44 120 mm gun
 - KEW-A1 / DM43/ DM53  AP
 - Armor data and armor damage model adapted for the L2A4M
-- Gen-3 gunner thermals
-- 
+- Gen-3 gunner thermals 
+
 
 Relevant entries:
 ```ini
