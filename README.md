@@ -13,15 +13,18 @@ independent thermal viewer.
 
 ## Installation
 
-Download `Leo2A4M-<version>-pack.zip` from [Releases](../../releases) and extract it into
-`<GHPC>/Bin/Mods/` so that you get:
+Download `Leo2A4M-<version>-pack.zip` from [Releases](../../releases) and **extract it directly into
+`<GHPC>/Bin/Mods/`** (right-click → "Extract here"). The archive is built so that this single step
+gives:
 
 ```text
 Bin/Mods/Leo2A4M.dll
 Bin/Mods/Leo2A4M/Leo2A4M.l2pack
 ```
 
-(Dropping the `.l2pack` next to the DLL also works.) Everything the mod needs — model, textures,
+MelonLoader only loads DLLs that sit **directly** in `Bin/Mods`, so do not bury the DLL in a
+sub-folder. When copying by hand: the DLL goes into `Bin/Mods`, the pack goes into
+`Bin/Mods/Leo2A4M/` (next to the DLL also works). Everything the mod needs — model, textures,
 tables, CITV display — is inside the pack and is loaded into memory; nothing is written to disk.
 
 ## Contents
