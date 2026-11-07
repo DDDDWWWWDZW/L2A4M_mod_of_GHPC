@@ -1,8 +1,8 @@
 # Leopard 2A4M for Gunner, HEAT, PC!
 
--Adds a new L2A4M to the game — you can take it for a test drive at the range or use it in missions. Please note! This version is still a work in progress (WIP): details are not yet polished, and there may be some minor bugs, but the overall gameplay is fully functional.
--为游戏新增一个l2a4m，你可以在靶场试驾或者在关卡中使用l2a4m。注意！该版本还处于开发中状态（wip），细节没有完善，也可能存在一些小bug，不过整体的游玩功能都是正常的。
--A playable **Leopard 2A4M** (War Thunder model) for **Gunner, HEAT, PC!**, built on the vanilla
+- Adds a new L2A4M to the game — you can take it for a test drive at the range or use it in missions. Please note! This version is still a work in progress (WIP): details are not yet polished, and there may be some minor bugs, but the overall gameplay is fully functional.
+- 为游戏新增一个l2a4m，你可以在靶场试驾或者在关卡中使用l2a4m。注意！该版本还处于开发中状态（wip），细节没有完善，也可能存在一些小bug，不过整体的游玩功能都是正常的。
+- A playable **Leopard 2A4M** (War Thunder model) for **Gunner, HEAT, PC!**, built on the vanilla
 `LEO2A3` donor: add-on armour, hull armour packages, selectable 120 mm rounds and a commander's
 independent thermal viewer.
 
