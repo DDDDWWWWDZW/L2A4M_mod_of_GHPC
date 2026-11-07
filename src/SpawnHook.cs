@@ -59,7 +59,6 @@ namespace Leo2A4M
             SpawnHook.Pending = false;
             try
             {
-                MelonLogger.Msg("[Leo2A4M] pre-Awake armour build on " + vic.name);
                 AddOnArmour.Build(vic);
             }
             catch (Exception ex)

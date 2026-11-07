@@ -15,13 +15,14 @@ using GHPC.State;
 using GHPC.Utility;
 using GHPC.Vehicle;
 using GHPC.Weapons;
+using GHPC.Weaponry;
 using HarmonyLib;
 using MelonLoader;
 using MelonLoader.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[assembly: MelonInfo(typeof(Leo2A4M.Leo2A4MMod), "Leopard 2A4M (WT visual swap)", "1.1.4", "Leo2A4M")]
+[assembly: MelonInfo(typeof(Leo2A4M.Leo2A4MMod), "Leopard 2A4M (WT visual swap)", "1.9.4", "Leo2A4M")]
 [assembly: MelonGame("Radian Simulations LLC", "GHPC")]
 
 namespace Leo2A4M
@@ -36,10 +37,12 @@ namespace Leo2A4M
     public class SightShellHider : MonoBehaviour
     {
         private readonly List<Renderer> _shell = new List<Renderer>();
+        private Vehicle _vic;
         private bool _hidden;
 
         public void Setup(Vehicle vic)
         {
+            _vic = vic;
             _shell.Clear();
             foreach (var r in vic.GetComponentsInChildren<Renderer>(true))
             {
@@ -57,11 +60,26 @@ namespace Leo2A4M
                 if (ours)
                     _shell.Add(r);
             }
-            MelonLogger.Msg("[Leo2A4M] aux sight hider: " + _shell.Count + " shell renderers");
         }
 
         private void Update()
         {
+            // The camera slot belongs to the PLAYER, and every L2A4M in the scene carries this
+            // component: without the player check, every enemy 2A4M hid its shell whenever the
+            // player sat in an auxiliary sight - which looked like "the enemy model failed to load".
+            var player = PlayerInput.Instance != null ? PlayerInput.Instance.CurrentPlayerUnit : null;
+            if (player == null || player != (GHPC.Unit)_vic)
+            {
+                if (_hidden)
+                {
+                    _hidden = false;
+                    foreach (var r in _shell)
+                        if (r != null)
+                            r.enabled = true;
+                }
+                return;
+            }
+
             var slot = CameraManager.Instance != null ? CameraManager.Instance._currentCamSlot : null;
             bool hide = slot != null && IsAuxSight(slot);
             if (hide == _hidden)
@@ -82,7 +100,7 @@ namespace Leo2A4M
             if (path != _lastSlotName)
             {
                 _lastSlotName = path;
-                MelonLogger.Msg("[Leo2A4M] cam slot: " + path);
+        
             }
 
             bool mainSight =
@@ -95,6 +113,529 @@ namespace Leo2A4M
                 return false;
 
             return path.IndexOf("turret", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+    }
+
+    /// <summary>
+    /// Snapshot/restore guard for armour pieces.
+    ///
+    /// The Fulda 1989 mod retunes the armour of whichever Leopard it locks onto: it swaps the piece's
+    /// ArmorCodexScriptable for its own "C-Tech composite" type and replaces the AarVisual material,
+    /// which is what makes our 2A4M show the 2A4's armour interior in the AAR view.  Because it
+    /// modifies existing components instead of creating new ones, the guard records the state right
+    /// after our conversion and keeps putting it back whenever it changes.
+    /// </summary>
+    public class ForeignArmourGuard : MonoBehaviour
+    {
+        private Vehicle _vic;
+        private float _timer;
+
+        private readonly List<MonoBehaviour> _pieces = new List<MonoBehaviour>();
+        private readonly List<object> _codex = new List<object>();
+        private readonly List<Component> _aar = new List<Component>();
+        private readonly List<object> _aarMaterial = new List<object>();
+        private readonly List<float[]> _numbers = new List<float[]>();
+        private readonly List<string> _names = new List<string>();
+        private readonly List<Component> _extraAar = new List<Component>();
+        private readonly List<object> _extraAarMat = new List<object>();
+        private int _restored;
+
+        public void Setup(Vehicle vic)
+        {
+            _vic = vic;
+            // Snapshot only.  Writing armour/ammo state during the spawn itself can hang the mission
+            // load, so the first sweep waits for the next tick.
+            Snapshot();
+            _timer = 0f;
+            LogCodexNames();
+        }
+
+        private void LogCodexNames()
+        {
+            var seen = new List<string>();
+            foreach (var c in _codex)
+            {
+                string d = c == null ? "<null>" : DescribeCodex(c);
+                if (!seen.Contains(d))
+                    seen.Add(d);
+            }
+                    }
+        private void Snapshot()
+        {
+            _pieces.Clear();
+            _codex.Clear();
+            _aar.Clear();
+            _aarMaterial.Clear();
+            _numbers.Clear();
+            _names.Clear();
+            _extraAar.Clear();
+            _extraAarMat.Clear();
+            if (_vic == null)
+                return;
+
+            foreach (var mb in _vic.GetComponentsInChildren<MonoBehaviour>(true))
+            {
+                if (mb == null)
+                    continue;
+                var tn = mb.GetType().Name;
+                if (tn != "UniformArmor" && tn != "VariableArmor")
+                    continue;
+
+                _pieces.Add(mb);
+                var codex = GetFieldValue(mb, "_armorType");
+                // A snapshot taken after Fulda already converted this plate would preserve the
+                // foreign codex forever - record null so the sweep substitutes a vanilla one.
+                _codex.Add(IsForeignCodex(codex) ? null : codex);
+                _numbers.Add(CaptureNumbers(mb));
+                _names.Add(GetFieldValue(mb, "_name") as string);
+
+                var aar = FindAarVisual(mb.gameObject);
+                _aar.Add(aar);
+                _aarMaterial.Add(aar != null ? GetFieldValue(aar, "AarMaterial") ?? GetFieldValue(aar, "aarMaterial") : null);
+
+                // The AAR/x-ray copy of a plate lives on a child object; Fulda recolours those too.
+                foreach (var child in mb.GetComponentsInChildren<MonoBehaviour>(true))
+                {
+                    if (child == null || child.GetType().Name != "AarVisual" || child == aar)
+                        continue;
+                    var mat = GetFieldValue(child, "AarMaterial") ?? GetFieldValue(child, "aarMaterial");
+                    if (mat == null)
+                        continue;
+                    _extraAar.Add(child);
+                    _extraAarMat.Add(mat);
+                }
+            }
+        }
+
+        private static bool IsNaN(float v) { return float.IsNaN(v); }
+
+        private static float[] CaptureNumbers(MonoBehaviour mb)
+        {
+            var a = GetFieldValue(mb, "PrimarySabotRha") ?? GetFieldValue(mb, "_primarySabotRha");
+            var b = GetFieldValue(mb, "PrimaryHeatRha") ?? GetFieldValue(mb, "_primaryHeatRha");
+            return new[]
+            {
+                a is float fa ? fa : float.NaN,
+                b is float fb ? fb : float.NaN
+            };
+        }
+
+
+        /// <summary>
+        /// Fulda rewrites the vehicle loadout (its DM33).  We do not trust a snapshot for this: if
+        /// Fulda ran first the snapshot would already be DM33.  The canonical rounds are the vanilla
+        /// 120 mm clips, located in the loaded resources by AmmoKit.
+        /// </summary>
+        private int RestoreLoadout()
+        {
+            // Disabled on purpose.  Even a "correct" clip written into LoadedAmmoList hangs the
+            // mission load when the gun does not accept that clip, and it also fights the vanilla
+            // loadout the game just built.  Ammunition is handled the safe way instead: AmmoKit only
+            // retunes the round the vehicle already carries.
+            return 0;
+        }
+
+        private void Update()
+        {
+            if (_vic == null)
+                return;
+            _timer += Time.unscaledDeltaTime;
+            // Fulda works from a coroutine, so keep watching for the whole mission.
+            if (_timer < 1f)
+                return;
+            _timer = 0f;
+            Sweep();
+        }
+
+        private int Sweep()
+        {
+            int restored = 0;
+            try
+            {
+                for (int i = 0; i < _pieces.Count; i++)
+                {
+                    var mb = _pieces[i];
+                    if (mb == null)
+                        continue;
+
+                    // 1) armour codex swapped (C-Tech composite and friends)
+                    object current = GetFieldValue(mb, "_armorType");
+                    object original = _codex[i];
+                    if (original == null)
+                    {
+                        // the plate was already foreign when we snapshotted: substitute a vanilla
+                        // codex for its family and remember it as the new baseline
+                        original = CanonicalCodexFor(mb);
+                        _codex[i] = original;
+                    }
+                    else if (IsForeignCodex(original))
+                    {
+                        original = CanonicalCodexFor(mb);
+                        _codex[i] = original;
+                    }
+                    if (original != null && !ReferenceEquals(current, original))
+                    {
+                        SetFieldValue(mb, "_armorType", original);
+                        restored++;
+                    }
+
+                    // 2) AAR material swapped on the visible interior copy
+                    var aar = _aar[i];
+                    if (aar != null)
+                    {
+                        object mat = GetFieldValue(aar, "AarMaterial") ?? GetFieldValue(aar, "aarMaterial");
+                        object originalMat = _aarMaterial[i];
+                        if (originalMat != null && !ReferenceEquals(mat, originalMat))
+                        {
+                            if (!SetFieldValue(aar, "AarMaterial", originalMat))
+                                SetFieldValue(aar, "aarMaterial", originalMat);
+                            restored++;
+                        }
+                    }
+
+                    // 3) protection numbers rewritten in place
+                    var want = _numbers[i];
+                    if (want != null)
+                    {
+                        var cur = CaptureNumbers(mb);
+                        if (!IsNaN(want[0]) && Mathf.Abs(cur[0] - want[0]) > 0.01f)
+                        {
+                            if (!SetFieldValue(mb, "PrimarySabotRha", want[0]))
+                                SetFieldValue(mb, "_primarySabotRha", want[0]);
+                            restored++;
+                        }
+                        if (!IsNaN(want[1]) && Mathf.Abs(cur[1] - want[1]) > 0.01f)
+                        {
+                            if (!SetFieldValue(mb, "PrimaryHeatRha", want[1]))
+                                SetFieldValue(mb, "_primaryHeatRha", want[1]);
+                            restored++;
+                        }
+                    }
+
+                    // 4) display name - this is the string the shot report prints ("C-Tech
+                    // composite"), and it is a separate field from the codex
+                    if (i < _names.Count)
+                    {
+                        var wantName = _names[i];
+                        var curName = GetFieldValue(mb, "_name") as string;
+                        if (!string.IsNullOrEmpty(wantName) && curName != wantName)
+                        {
+                            if (SetFieldValue(mb, "_name", wantName))
+                                restored++;
+                        }
+                    }
+                }
+
+                // 4) AAR copies that live on child objects
+                for (int i = 0; i < _extraAar.Count; i++)
+                {
+                    var c = _extraAar[i];
+                    if (c == null || i >= _extraAarMat.Count)
+                        continue;
+                    var wantMat = _extraAarMat[i];
+                    if (wantMat == null)
+                        continue;
+                    object cur = GetFieldValue(c, "AarMaterial") ?? GetFieldValue(c, "aarMaterial");
+                    if (ReferenceEquals(cur, wantMat))
+                        continue;
+                    if (!SetFieldValue(c, "AarMaterial", wantMat))
+                        SetFieldValue(c, "aarMaterial", wantMat);
+                    restored++;
+                }
+
+                // 5) the loadout itself: Fulda also swaps the vehicle's ammunition for its DM33
+                restored += RestoreLoadout();
+            }
+            catch (Exception ex)
+            {
+                MelonLogger.Warning("[Leo2A4M] armour guard: " + ex.Message);
+            }
+
+            if (restored > 0)
+            {
+                _restored += restored;
+                MelonLogger.Msg("[Leo2A4M] armour guard: restored " + restored +
+                    " piece(s) of " + (_vic != null ? _vic.name : "?") + ", total " + _restored);
+            }
+            return restored;
+        }
+
+        private static ArmorCodexScriptable _hullCodex;
+        private static ArmorCodexScriptable _turretCodex;
+
+        /// <summary>
+        /// The asset name may not mention C-Tech at all - Fulda's marker lives in the ArmorType's
+        /// display name ("C-Tech composite").  Check both, otherwise the snapshot is taken *after*
+        /// the injection and the foreign codex is preserved as if it were the original.
+        /// </summary>
+        private static string DescribeCodex(object codex)
+        {
+            var so = codex as UnityEngine.Object;
+            string s = so != null ? (so.name ?? "") : "";
+            if (codex != null)
+            {
+                var at = GetFieldValue(codex, "ArmorType");
+                if (at != null)
+                {
+                    object v = null;
+                    var p = at.GetType().GetProperty("Name");
+                    if (p != null)
+                        v = p.GetValue(at);
+                    if (v == null)
+                        v = GetFieldValue(at, "Name") ?? GetFieldValue(at, "name");
+                    if (v is string sv)
+                        s += " | " + sv;
+                }
+            }
+            return s;
+        }
+
+        private static bool IsForeignCodex(object codex)
+        {
+            if (codex == null)
+                return false;
+            string n = DescribeCodex(codex).ToLowerInvariant();
+            // Fulda marks its pieces "C-Tech composite".  Do NOT match the bare "c tech": the
+            // vanilla hull/turret arrays are named "Leo 2 hull array C tech", so a loose match made
+            // the guard revert our own hull upgrade back to the B-tech donor values every second.
+            if (n.Contains("leo2a4m"))
+                return false;
+            return n.Contains("c-tech") || n.Contains("ctech");
+        }
+
+        /// <summary>Vanilla Leo 2 array codex for the plate's family (never a Fulda one).</summary>
+        private static object CanonicalCodexFor(MonoBehaviour mb)
+        {
+            if (_hullCodex == null || _turretCodex == null)
+            {
+                foreach (var c in Resources.FindObjectsOfTypeAll<ArmorCodexScriptable>())
+                {
+                    if (c == null || IsForeignCodex(c))
+                        continue;
+                    string n = (c.name ?? "").ToLowerInvariant();
+                    if (_turretCodex == null && n.Contains("turret") && n.Contains("array"))
+                        _turretCodex = c;
+                    else if (_hullCodex == null && n.Contains("hull") && n.Contains("array"))
+                        _hullCodex = c;
+                }
+            }
+
+            string path = (mb.gameObject.name ?? "").ToLowerInvariant();
+            for (var t = mb.transform.parent; t != null; t = t.parent)
+                path = (t.name ?? "").ToLowerInvariant() + "/" + path;
+            bool turret = path.Contains("turret") || path.Contains("cheek") || path.Contains("breech");
+            var pick = turret ? _turretCodex : _hullCodex;
+            return pick != null ? (object)pick : (turret ? _hullCodex : _turretCodex);
+        }
+        private static Component FindAarVisual(GameObject go)
+        {
+            foreach (var mb in go.GetComponents<MonoBehaviour>())
+                if (mb != null && mb.GetType().Name == "AarVisual")
+                    return mb;
+            return null;
+        }
+
+        private static object GetFieldValue(object target, string name)
+        {
+            var f = Field(target, name);
+            return f != null ? f.GetValue(target) : null;
+        }
+
+        private static bool SetFieldValue(object target, string name, object value)
+        {
+            var f = Field(target, name);
+            if (f == null || value == null)
+                return false;
+            f.SetValue(target, value);
+            return true;
+        }
+
+        private static readonly Dictionary<string, System.Reflection.FieldInfo> _fieldCache =
+            new Dictionary<string, System.Reflection.FieldInfo>();
+
+        /// <summary>
+        /// Cached field lookup.  The guard touches ~156 pieces per vehicle per sweep, and the
+        /// uncached GetField plus base-type walk dominated the cost of a sweep.
+        /// </summary>
+        private static System.Reflection.FieldInfo Field(object target, string name)
+        {
+            var type = target.GetType();
+            string key = type.FullName + "|" + name;
+            System.Reflection.FieldInfo cached;
+            if (_fieldCache.TryGetValue(key, out cached))
+                return cached;
+
+            System.Reflection.FieldInfo found = null;
+            for (var t = type; t != null && t != typeof(object); t = t.BaseType)
+            {
+                found = t.GetField(name,
+                    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.DeclaredOnly);
+                if (found != null)
+                    break;
+            }
+            _fieldCache[key] = found;
+            return found;
+        }
+    }
+
+    /// <summary>
+    /// Reads a preference value straight out of MelonPreferences.cfg.  On this install
+    /// MelonPreferences.Save() does not rewrite the file and Entry.Value can come back as the
+    /// default, which made config edits look like they were ignored.
+    /// </summary>
+    internal static class Cfg
+    {
+        internal static string File_()
+        {
+            try
+            {
+                return System.IO.Path.Combine(MelonLoader.Utils.MelonEnvironment.UserDataDirectory,
+                    "MelonPreferences.cfg");
+            }
+            catch (Exception) { return null; }
+        }
+
+        /// <summary>
+        /// MelonPreferences.cfg is shared by every installed mod and Tomlyn rejects the WHOLE file if
+        /// one line is malformed - every mod then runs on defaults.  Repair the cheap case (a key with
+        /// no value) and report duplicate keys so the owner of that section can be told.
+        /// </summary>
+        internal static void SanitizeFile()
+        {
+            try
+            {
+                string file = File_();
+                if (file == null || !System.IO.File.Exists(file))
+                    return;
+
+                string[] lines = System.IO.File.ReadAllLines(file);
+                bool changed = false;
+                var dupes = new List<string>();
+                string section = "<root>";
+                var seen = new HashSet<string>();
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string line = lines[i];
+                    string trimmed = line.Trim();
+                    if (trimmed.Length == 0 || trimmed.StartsWith("#", StringComparison.Ordinal))
+                        continue;
+
+                    if (trimmed.StartsWith("[", StringComparison.Ordinal) && trimmed.EndsWith("]", StringComparison.Ordinal))
+                    {
+                        section = trimmed;
+                        continue;
+                    }
+
+                    int eq = line.IndexOf('=');
+                    if (eq < 0)
+                        continue;
+
+                    string value = line.Substring(eq + 1).Trim();
+                    if (value.Length == 0 || value.StartsWith("#", StringComparison.Ordinal))
+                    {
+                        lines[i] = line.Substring(0, eq + 1) + " \"\"";
+                        changed = true;
+                        MelonLogger.Warning("[Leo2A4M] cfg repair: line " + (i + 1) +
+                            " had no value, set to empty string (" + trimmed + ")");
+                        value = "\"\"";
+                    }
+
+                    string key = section + "|" + (line.Substring(0, eq).Trim().Trim('"'));
+                    if (!seen.Add(key))
+                        dupes.Add("line " + (i + 1) + " in " + section);
+                }
+
+                if (changed)
+                {
+                    string backup = file + ".bak-leo2a4m";
+                    try { System.IO.File.Copy(file, backup, true); } catch (Exception) { }
+                    System.IO.File.WriteAllLines(file, lines, new System.Text.UTF8Encoding(false));
+                    MelonLogger.Msg("[Leo2A4M] cfg repaired (backup: " + backup + ")");
+                }
+
+                if (dupes.Count > 0)
+                    MelonLogger.Warning("[Leo2A4M] cfg has duplicate keys (whole file fails to parse, " +
+                        "every mod runs on defaults): " + string.Join("; ", dupes.ToArray()));
+            }
+            catch (Exception ex)
+            {
+                MelonLogger.Warning("[Leo2A4M] cfg sanitize failed: " + ex.Message);
+            }
+        }
+
+        internal static string GetString(string key, string fallback)
+        {
+            try
+            {
+                string file = File_();
+                if (file != null && System.IO.File.Exists(file))
+                {
+                    foreach (var line in System.IO.File.ReadAllLines(file))
+                    {
+                        if (line.IndexOf(key, StringComparison.Ordinal) < 0)
+                            continue;
+                        int eq = line.IndexOf('=');
+                        if (eq < 0)
+                            continue;
+                        string v = line.Substring(eq + 1).Trim();
+                        int hash = v.IndexOf('#');
+                        if (hash >= 0)
+                            v = v.Substring(0, hash).Trim();
+                        v = v.Trim('"', ' ');
+                        if (v.Length > 0)
+                            return v;
+                    }
+                }
+            }
+            catch (Exception) { }
+            return fallback;
+        }
+
+        internal static bool GetBool(string key, bool fallback)
+        {
+            string v = GetString(key, fallback ? "true" : "false").ToLowerInvariant();
+            return v == "true" || v == "1" || v == "yes";
+        }
+
+        /// <summary>Appends any of our keys that are missing from the cfg file.</summary>
+        internal static void EnsureKeys(params string[] keyValuePairs)
+        {
+            try
+            {
+                string file = File_();
+                if (file == null || !System.IO.File.Exists(file))
+                    return;
+                string[] lines = System.IO.File.ReadAllLines(file);
+                var missing = new List<string>();
+                for (int i = 0; i + 1 < keyValuePairs.Length; i += 2)
+                {
+                    string key = keyValuePairs[i];
+                    bool found = false;
+                    foreach (var line in lines)
+                        if (line.IndexOf(key, StringComparison.Ordinal) >= 0) { found = true; break; }
+                    if (!found)
+                        missing.Add("\"" + key + "\" = " + keyValuePairs[i + 1]);
+                }
+                if (missing.Count == 0)
+                    return;
+
+                var all = new List<string>(lines);
+                int section = all.FindIndex(l => l.Trim() == "[Leo2A4M]");
+                if (section < 0)
+                {
+                    all.Add("[Leo2A4M]");
+                    section = all.Count - 1;
+                }
+                all.InsertRange(section + 1, missing);
+                System.IO.File.WriteAllLines(file, all, new System.Text.UTF8Encoding(false));
+                MelonLogger.Msg("[Leo2A4M] cfg: appended " + missing.Count + " missing key(s)");
+            }
+            catch (Exception ex)
+            {
+                MelonLogger.Warning("[Leo2A4M] cfg ensure failed: " + ex.Message);
+            }
         }
     }
 
@@ -158,15 +699,20 @@ namespace Leo2A4M
         internal static float GunZ = 0f;
         internal static float ModelScale = 1f;
         internal static float HullScaleX = 1.06f;
-        internal static MelonPreferences_Entry<bool> WtRunningGear;
-        internal static MelonPreferences_Entry<bool> TakeControl;
+        // ---- frozen tuning values (previously preferences) ----
+        internal const bool  WtRunningGearOn      = false;   // use the WT wheels instead of the vanilla gear
+        internal const bool  ShowVanillaGear      = true;    // keep the animated vanilla wheels/tracks
+        internal const bool  TakeControlOnSpawn   = true;
+        internal const bool  SmoothCitv           = true;
+        internal const float CitvSensitivity      = 1.0f;    // 1 = vanilla pan speed
+        internal const bool  RangeShowcaseSpawn   = false;   // spawn a spare 2A4M on ranges
+        internal const bool  AmmoLoadoutRebuild   = false;   // rebuild racks with our round types
+
         internal static MelonPreferences_Entry<bool> CitvEnabled;
-        internal static MelonPreferences_Entry<bool> CitvSmooth;
         internal static bool GunnerSightEnabled = true;
         internal static float GunnerSightX = 0f;
         internal static float GunnerSightY = 0.15f;
         internal static float GunnerSightZ = 0f;
-        internal static MelonPreferences_Entry<float> CitvSens;
         internal static bool CitvGen1 = false;
         internal static bool CitvUseBlit = false;
         internal static int CitvRes = 1280;
@@ -183,7 +729,6 @@ namespace Leo2A4M
         internal static float CitvGunBias = 0f;
         internal static bool CitvOpticFcsRange = true;
         internal static bool CitvOpticRotElev = false;
-        internal static MelonPreferences_Entry<string> CitvFreeLookKey;
         internal static bool VerboseLog = false;
         internal static float CitvX = 0.55f;
         internal static float CitvY = 2.55f;
@@ -196,11 +741,12 @@ namespace Leo2A4M
         internal static float GunnerContrast = 1.9f;
         internal static float GunnerExposure = 1.5f;
         internal static float GunnerScanlines = 0f;
-        internal static MelonPreferences_Entry<bool> ShowVanillaRunningGear;
 
         // Texture look options consumed by ObjLoader (neutral by default).
         internal static MelonPreferences_Entry<string> PaintScheme;
         internal static MelonPreferences_Entry<string> HullArmourLevel;
+        internal static MelonPreferences_Entry<bool> TurretAddonEnhanced;
+
         internal static MelonPreferences_Entry<string> ApAmmo;
         internal static float TextureSaturation = 1f;
         internal static float TextureMipBias = 0f;
@@ -221,9 +767,6 @@ namespace Leo2A4M
         {
             var missing = new List<string>();
             void Check(string name, object entry) { if (entry == null) missing.Add(name); }
-            Check("ShowVanillaRunningGear", ShowVanillaRunningGear);
-            Check("WtRunningGear", WtRunningGear);
-            Check("TakeControl", TakeControl);
             Check("CitvEnabled", CitvEnabled);
             Check("GunnerSightEnabled", GunnerSightEnabled);
             Check("GunnerSightX", GunnerSightX);
@@ -234,19 +777,16 @@ namespace Leo2A4M
 
         public override void OnInitializeMelon()
         {
+            if (SafeMode)
+            {
+                MelonLogger.Warning("[Leo2A4M] SAFE MODE: Harmony patches NOT applied");
+                return;
+            }
             HarmonyInstance.PatchAll();
 
             var cfg = MelonPreferences.CreateCategory("Leo2A4M");
-            WtRunningGear = cfg.CreateEntry("WT Running Gear (Leo2A4M)", false);
-            WtRunningGear.Comment = "Use the WT wheels/tracks (fits the hull exactly) instead of the animated vanilla gear";
-            TakeControl = cfg.CreateEntry("Take Control On Spawn (Leo2A4M)", true);
-            TakeControl.Comment = "Put the player in the spawned LEO2A4M so it can be driven immediately";
             CitvEnabled = cfg.CreateEntry("CITV (Leo2A4M)", true);
             CitvEnabled.Comment = "Commander's independent thermal viewer (gen-1 imager)";
-            CitvSmooth = cfg.CreateEntry("Smooth CITV Panning (Leo2A4M)", true);
-
-            CitvSens = cfg.CreateEntry("CITV Aim Sensitivity (Leo2A4M)", 0.32f);
-            CitvSens.Comment = "multiplier on the CITV pan input (1 = untouched, below 1 = slower, above 1 = faster)";
 
 
 
@@ -259,36 +799,101 @@ namespace Leo2A4M
 
 
 
-            CitvFreeLookKey = cfg.CreateEntry("CITV Free Look Key (Leo2A4M)", "LeftAlt");
-            CitvFreeLookKey.Comment = "optional extra key that also suppresses the gun (default LeftAlt); the main control is: release = free look, hold right mouse = commander override drives the gun";
-            ShowVanillaRunningGear = cfg.CreateEntry("Vanilla Running Gear (Leo2A4M)", true);
-            ShowVanillaRunningGear.Comment = "Keep the animated vanilla wheels/tracks under the WT hull";
+
             PaintScheme = cfg.CreateEntry("Paint Scheme (Leo2A4M)", "Bronzegrun");
             HullArmourLevel = cfg.CreateEntry("Hull Armour Level (Leo2A4M)", "b");
-            HullArmourLevel.Comment = "hull front composite level: b = donor (300/600), c = 512/850, d = 592/960";
+            HullArmourLevel.Comment = "Choose the hull armour package: b / c / d. d is the strongest, b is the stock Leo 2A3 armour. Default: b";
+            TurretAddonEnhanced = cfg.CreateEntry("Turret Add-on Armour (Leo2A4M)", false);
+            TurretAddonEnhanced.Comment = "Adds extra protection to the turret front add-on armour. Default: false";
             ApAmmo = cfg.CreateEntry("AP Ammo (Leo2A4M)", "kewa1");
-            ApAmmo.Comment = "kewa1 (default, 618 mm), dm43 (580 mm), dm53 (650 mm, 30% of ERA ignored)";
+            ApAmmo.Comment = "kewa1 (608 mm), dm43 (562 mm), dm53 (668 mm, ignores 30% of ERA)";
             PaintScheme.Comment = "Bronzegrun (default), Sand, or Tricolor";
+
+            // MelonPreferences keeps entries it read from the file even when the code no longer
+            // creates them, and writes them back on exit.  Delete the retired tuning keys for good.
+            try
+            {
+                string[] retired =
+                {
+                    "WT Running Gear (Leo2A4M)", "Vanilla Running Gear (Leo2A4M)",
+                    "Take Control On Spawn (Leo2A4M)", "Smooth CITV Panning (Leo2A4M)",
+                    "CITV Aim Sensitivity (Leo2A4M)", "CITV Free Look Key (Leo2A4M)",
+                    "Range Showcase Spawn (Leo2A4M)", "Ammo Loadout Rebuild (Leo2A4M)",
+                };
+                var del = cfg.GetType().GetMethod("DeleteEntry");
+                var get = cfg.GetType().GetMethod("GetEntry", new[] { typeof(string) });
+                foreach (var key in retired)
+                {
+                    try
+                    {
+                        if (!cfg.HasEntry(key) || del == null)
+                            continue;
+                        var pt = del.GetParameters()[0].ParameterType;
+                        object arg = pt == typeof(string)
+                            ? (object)key
+                            : get != null ? get.Invoke(cfg, new object[] { key }) : null;
+                        if (arg != null)
+                            del.Invoke(cfg, new[] { arg });
+                    }
+                    catch (Exception) { }
+                }
+            }
+            catch (Exception) { }
+
             ReportMissingPrefs();
             MelonPreferences.Save();
+            Cfg.SanitizeFile();
+            Cfg.EnsureKeys(
+                "Turret Add-on Armour (Leo2A4M)", "\"false\"",
+                "Hull Armour Level (Leo2A4M)", "\"c\"",
+                "AP Ammo (Leo2A4M)", "\"kewa1\"");
 
 
             MelonCoroutines.Start(RegisterRoutine());
             MelonLogger.Msg("[Leo2A4M] loaded, modRoot=" + ModRoot);
         }
 
+        /// <summary>Set LEO2A4M_SAFE=1 in the environment to run the game without this mod's logic.</summary>
+        private static bool SafeMode
+        {
+            get
+            {
+                try { return Environment.GetEnvironmentVariable("LEO2A4M_SAFE") == "1"; }
+                catch (Exception) { return false; }
+            }
+        }
+
         public override void OnSceneWasLoaded(int buildIndex, string sceneName)
         {
+            if (SafeMode)
+            {
+                HarmonyInstance.UnpatchSelf();
+                MelonLogger.Warning("[Leo2A4M] SAFE MODE: all patches removed, scene setup skipped");
+                return;
+            }
+
             MelonCoroutines.Start(RegisterRoutine());
             MelonCoroutines.Start(ScanExisting());
-            MelonLogger.Msg("[Leo2A4M] scene loaded: " + sceneName);
+            // (HUD repair is attached per vehicle - coroutines die on scene load)
+            if (sceneName.IndexOf("LOADER", StringComparison.OrdinalIgnoreCase) < 0)
+            {
+                MelonCoroutines.Start(AmmoWarmup());
+            }
 
             // On a range scene, put a LEO2A4M next to the player so it can be inspected or shot at.
-            if (IsRangeScene(sceneName))
+            // A mission whose scene is literally the range showcase always gets it; elsewhere the
+            // switch below decides (training missions reuse the range scenes, so they stay off).
+            bool isShowcase = sceneName != null &&
+                sceneName.IndexOf("showcase", StringComparison.OrdinalIgnoreCase) >= 0;
+            bool wantShowcase = isShowcase || RangeShowcaseSpawn;
+            if (wantShowcase && IsRangeScene(sceneName))
             {
                 _autoSpawned = false;
                 StateController.RunOrDefer(GameState.PlayerReady,
                     new GameStateEventHandler(RangeSpawn), GameStatePriority.Medium);
+            }
+            else if (IsRangeScene(sceneName))
+            {
             }
         }
 
@@ -315,7 +920,6 @@ private static IEnumerator RegisterRoutine()
                         if (!_loggedUnits)
                         {
                             _loggedUnits = true;
-                            MelonLogger.Msg("[Leo2A4M] units: " + string.Join(",", lookup.AllUnits.Where(m => m != null).Select(m => m.Name).ToArray()));
                         }
                         // pick the donor in preference order (LEO2A3 carries the EMES-15 thermal sight)
                         UnitPrefabLookupScriptable.UnitPrefabMetadata src = null;
@@ -361,13 +965,99 @@ private static IEnumerator RegisterRoutine()
                 yield return null;            }
         }
 
+        /// <summary>
+        /// Keeps converting every LEO2A4M in the scene.  A one-shot scan was not enough: AI vehicles
+        /// spawned later by a mission script slipped past the spawn hook and ended up completely
+        /// unconverted - no WT model parts, no anti-Fulda guard, vanilla 2A4 armour and its DM33.
+        /// </summary>
+        /// <summary>
+        /// The HUD builds its ammo label from whichever round already exists at that moment, so the
+        /// rename has to happen as soon as the round asset is loaded - long before the player's
+        /// vehicle spawns.  This polls the resource pool for a few seconds after every scene load.
+        /// </summary>
+        /// <summary>
+        /// The loadout swap must not run inside Awake: rebuilding the racks before the weapon system
+        /// is initialised left the gun with no ammo at all (HUD showed "Weapon name" placeholders).
+        /// M1A2C does the same thing from a short retry coroutine after the vehicle exists.
+        /// </summary>
+        private static IEnumerator AmmoLater(Vehicle vic)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                yield return new WaitForSeconds(0.5f);
+                if (vic == null)
+                    yield break;
+                AmmoKit.Apply(vic);
+                AmmoKit.RefreshHud(vic);
+            }
+        }
+
+        /// <summary>
+        /// Keeps retrying the HUD ammo label: MainGun only exists once the player controller is created,
+        /// which can be several seconds after the vehicle itself.
+        /// </summary>
+        private static IEnumerator HudWatch()
+        {
+            for (int i = 0; i < 150; i++)
+            {
+                AmmoKit.RefreshHud(null);
+                yield return new WaitForSeconds(2f);
+            }
+        }
+        private static IEnumerator AmmoWarmup()
+        {
+            // Give the scene a moment: the scan below walks every loaded asset and is far too
+            // expensive to run while the loader is still working (that hung the loading screen once
+            // other big mods were installed).
+            yield return new WaitForSeconds(3f);
+            for (int i = 0; i < 30; i++)
+            {
+                if (AmmoKit.Retuned)
+                    yield break;
+                if (AmmoKit.TryRetuneResources())
+                {
+                    yield break;
+                }
+                yield return new WaitForSeconds(1.5f);
+            }
+        }
         private static IEnumerator ScanExisting()
         {
-            yield return new WaitForSeconds(2f);
-            foreach (var vic in GameObject.FindObjectsByType<Vehicle>(FindObjectsSortMode.None))
+            float waited = 0f;
+            while (true)
             {
-                if (vic != null && vic.UniqueName == UnitName)
-                    Convert(vic);
+                yield return new WaitForSeconds(waited < 30f ? 2f : 10f);
+                waited += 2f;
+                try
+                {
+                    foreach (var vic in GameObject.FindObjectsByType<Vehicle>(FindObjectsSortMode.None))
+                    {
+                        if (vic == null || vic.gameObject == null)
+                            continue;
+                        if (vic.UniqueName != UnitName)
+                            continue;
+
+                        bool converted = vic.gameObject.GetComponent<Leo2A4MConverted>() != null;
+                        if (!converted)
+                        {
+                            Convert(vic);
+                            continue;
+                        }
+
+                        // ARMOR SIM spawns/respawns its own test vehicle copy, which loses the
+                        // runtime-built add-on pieces.  EnsureBuilt is idempotent (marker component),
+                        // so this is a cheap no-op for vehicles that already have them.
+                        if (vic.GetComponent<AddOnArmour.AddOnArmourBuilt>() == null)
+                        {
+                            AddOnArmour.EnsureBuilt(vic);
+                            AddOnArmour.AlignToVisuals(vic);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Warning("[Leo2A4M] scene scan failed: " + ex.Message);
+                }
             }
         }
 
@@ -378,14 +1068,11 @@ private static IEnumerator RegisterRoutine()
 
             string obj = Path.Combine(ModRoot, "Leo2A4M_GHPC_1.2.obj");
             string tsv = Path.Combine(ModRoot, "materials.tsv");
-            MelonLogger.Msg("[Leo2A4M] load assets from " + ModRoot);
             var infos = ObjLoader.LoadMatInfo(tsv);
             _materials = ObjLoader.BuildMaterials(infos, ModRoot);
             _parts = ObjLoader.Parse(obj);
             _anchors = ObjLoader.LoadParts(Path.Combine(ModRoot, "parts.tsv"));
             _assetsReady = true;
-            MelonLogger.Msg("[Leo2A4M] materials=" + _materials.Count +
-                " parts=" + _parts.Count + " anchors=" + _anchors.Count);
         }
 
         public static void Convert(Vehicle vic)
@@ -405,7 +1092,7 @@ private static IEnumerator RegisterRoutine()
                 EnsureAssets();
                 HideVanilla(vic);
 
-                if (ShowVanillaRunningGear != null && !ShowVanillaRunningGear.Value)
+                if (!ShowVanillaGear)
                     HideRunningGear(vic);
 
                 var rig = FindRig(vic);
@@ -422,7 +1109,7 @@ private static IEnumerator RegisterRoutine()
                 foreach (var part in _parts)
                 {
                     string anchor = AnchorOf(part.Name);
-                    if (anchor == "RunningGear" && !WtRunningGear.Value)
+                    if (anchor == "RunningGear" && !WtRunningGearOn)
                         continue;
                     Transform parent;
                     Vector3 extra;
@@ -449,8 +1136,6 @@ private static IEnumerator RegisterRoutine()
                     else if (anchor == "Gun") attachedGun++;
                     else attachedHull++;
                 }
-                MelonLogger.Msg("[Leo2A4M] attached parts hull=" + attachedHull + " turret=" + attachedTurret +
-                    " gun=" + attachedGun + (skipped > 0 ? (" skipped=" + skipped) : ""));
 
                 // 2A4M keeps the 2A4 turret, but the WT add-on armour sits in front of the
                 // donor's sight opening, so the gunner/thermal cameras still have to be lifted
@@ -471,8 +1156,13 @@ private static IEnumerator RegisterRoutine()
                 {
                     AddOnArmour.EnsureBuilt(vic);
                     AddOnArmour.AlignToVisuals(vic);   // visuals exist now: snap the pieces onto them
-                    AmmoKit.Apply(vic);                // configurable 120 mm loadout
+                    MelonCoroutines.Start(AmmoLater(vic));   // configurable 120 mm loadout
+
                     HullArmour.Apply(vic);             // hull front composite level (b/c/d)
+
+                    // guard against the Fulda 1989 mod injecting its C-Tech armour into our unit
+                    var guard = vic.gameObject.AddComponent<ForeignArmourGuard>();
+                    guard.Setup(vic);
                 }
                 catch (Exception ex) { MelonLogger.Warning("[Leo2A4M] addon armour: " + ex.Message); }
             }
@@ -536,8 +1226,7 @@ private static void HideVanilla(Vehicle vic)
             // blacklist of mesh children is not enough.
             var keep = new List<Transform>();
             var meshRoot = FindDeep(vic.transform, "LEO2_mesh");
-            bool keepVanillaGear = ShowVanillaRunningGear != null && ShowVanillaRunningGear.Value &&
-                                  WtRunningGear != null && !WtRunningGear.Value;
+            bool keepVanillaGear = ShowVanillaGear && !WtRunningGearOn;
             var gear = meshRoot != null ? FindDeep(meshRoot, "running gear") : null;
             if (gear != null && keepVanillaGear)
                 keep.Add(gear);
@@ -575,8 +1264,6 @@ private static void HideVanilla(Vehicle vic)
                     hidden++;
                 }
             }
-            MelonLogger.Msg("[Leo2A4M] hid " + hidden + " vanilla renderers, kept " +
-                            keep.Count + " groups (" + kept + " re-enabled)");
         }
 
         private static void HideRunningGear(Vehicle vic)
@@ -708,9 +1395,6 @@ private static string Describe(object v)
             Vector3 worldTarget = vic.transform.TransformPoint(target);
             Vector3 delta = worldTarget - optic.position;
             mover.position += delta;
-            MelonLogger.Msg("[Leo2A4M] gunner sight assembly moved: " + mover.name +
-                " delta=" + delta.ToString("F3") + " -> vehicle " + target.ToString("F3") +
-                " (FLIR child follows)");
         }
 
         private static void MoveSightUnder(Vehicle vic, Transform sight, Vector3 targetVehicle)
@@ -719,8 +1403,6 @@ private static string Describe(object v)
                 return;
             Vector3 local = sight.parent.InverseTransformPoint(vic.transform.TransformPoint(targetVehicle));
             sight.localPosition = local;
-            MelonLogger.Msg("[Leo2A4M] sight moved to vehicle " + targetVehicle.ToString("F3") +
-                " (local " + local.ToString("F3") + ") path=" + PathOf(sight, vic.transform));
         }
 
         /// <summary>
@@ -736,7 +1418,6 @@ private static string Describe(object v)
             {
                 if (GunnerGen2 == null || !GunnerGen2)
                 {
-                    MelonLogger.Msg("[Leo2A4M] gunner thermal: gen-2 off, donor look kept");
                     return;
                 }
 
@@ -769,7 +1450,6 @@ private static string Describe(object v)
                 var srcMat = slot.FLIRBlitMaterialOverride;
                 if (srcMat == null)
                 {
-                    MelonLogger.Msg("[Leo2A4M] gunner thermal: donor slot has no blit material, buffer only");
                 }
                 else
                 {
@@ -800,10 +1480,6 @@ private static string Describe(object v)
                 slot.enabled = false;
                 slot.enabled = true;
 
-                MelonLogger.Msg("[Leo2A4M] gunner thermal gen-2: " + beforeW + "x" + beforeH + " -> " +
-                    slot.FLIRWidth + "x" + slot.FLIRHeight + " blur=0 ramp=" +
-                    (GunnerContrast != null ? GunnerContrast.ToString("F2") : "?") +
-                    " exposure=" + (GunnerExposure != null ? GunnerExposure.ToString("F2") : "?"));
             }
             catch (Exception ex)
             {
@@ -1054,10 +1730,6 @@ private static string Describe(object v)
                     // That array is what the C key cycles through, so appending the CITV slot made
                     // C go commander -> CITV instead of commander -> third person.  The UsableOptic
                     // above is enough for the sight to exist; the cycle stays vanilla.
-                    MelonLogger.Msg("[Leo2A4M] CITV optic registered: fcs=" + (fcs != null ? fcs.name : "null") +
-                        " align=" + citvOptic.Alignment + " slots=" +
-                        (vic.DesignatedCameraSlots != null ? vic.DesignatedCameraSlots.Length.ToString() : "null") +
-                        " (not added to the C-key cycle)");
                 }
                 catch (Exception ex) { MelonLogger.Warning("[Leo2A4M] CITV optic register failed: " + ex.Message); }
 
@@ -1075,9 +1747,6 @@ private static string Describe(object v)
                 }
 
 
-                MelonLogger.Msg("[Leo2A4M] CITV attached to " + slot.name + " at (" +
-                    CitvX.ToString("F2") + ", " + CitvY.ToString("F2") + ", " +
-                    CitvZ.ToString("F2") + ")");
             }
             catch (Exception ex)
             {
@@ -1167,8 +1836,6 @@ internal static string PathOf(Transform t, Transform root)
             while (usedIds.Contains(newId))
                 newId++;
             spawned.InstanceId = newId;
-            MelonLogger.Msg("[Leo2A4M] range unit ready id=" + spawned.InstanceId +
-                " noPlayerControl=" + spawned.NoPlayerControl);
             MelonCoroutines.Start(EnsureEngine(spawned));
         }
 
@@ -1206,9 +1873,6 @@ internal static string PathOf(Transform t, Transform root)
                     sound.enabled = true;
                 }
 
-                MelonLogger.Msg("[Leo2A4M] engine ensure: controller=" + (controller != null) +
-                    " engine=" + (engine != null) + " running=" + (engine != null && engine.IsRunning) +
-                    " sound=" + (sound != null));
             }
             catch (Exception ex)
             {
@@ -1216,11 +1880,18 @@ internal static string PathOf(Transform t, Transform root)
             }
         }
 
+        /// <summary>
+        /// Only the real gunnery ranges.  The old test also matched the bare word "range", which made
+        /// the showcase tank spawn inside training missions and read as a hostile vehicle.
+        /// </summary>
         private static bool IsRangeScene(string sceneName)
         {
-            return sceneName.IndexOf("TR01", StringComparison.OrdinalIgnoreCase) >= 0
-                || sceneName.IndexOf("TankRange", StringComparison.OrdinalIgnoreCase) >= 0
-                || sceneName.IndexOf("range", StringComparison.OrdinalIgnoreCase) >= 0;
+            if (string.IsNullOrEmpty(sceneName))
+                return false;
+            // TankRange only: TR01 is also loaded by training missions, and spawning the showcase
+            // tank there reads as an extra hostile vehicle.
+            return sceneName.IndexOf("TankRange", StringComparison.OrdinalIgnoreCase) >= 0
+                || sceneName.IndexOf("showcase", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
 

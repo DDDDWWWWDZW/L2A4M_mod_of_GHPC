@@ -18,25 +18,25 @@ namespace Leo2A4M
     ///
     ///   B (default) 300 KE / 600 CE - the donor, left completely untouched
     ///   C           512 KE / 850 CE
-    ///   D           592 KE / 960 CE
+    ///   D           600 KE / 960 CE
     /// </summary>
     internal static class HullArmour
     {
         private const float BaseKe = 300f;
         private const float BaseCe = 600f;
 
-        // The in-game readout includes angle/LOS effects, so a plate whose flat value is X shows
-        // slightly less for KE and slightly more for CE at the ~50 deg impact used for measuring:
-        //   KE: flat 500 -> reads 484   (0.968)
-        //   CE: flat 850 -> reads 904   (1.0635)
-        // The level numbers below are what the readout should show, so they are divided by these
-        // factors to get the flat values written into the codex.
-        private const float KeDisplayFactor = 0.968f;
+        // The in-game readout includes angle/LOS effects, so the flat value written into the codex
+        // does not equal the number the player sees.  Both factors below are measured back-to-front:
+        //   CE: target 960 -> plate reads 960, so the CE factor was already right.
+        //   KE: target 592 -> plate read 670, i.e. the flat value must be scaled DOWN by 670/592.
+        // KeDisplayFactor is therefore the measured readout/flat ratio (0.968 * 670/592 = 1.0955),
+        // which makes the readout land on the target for both C and D.
+        private const float KeDisplayFactor = 1.0955f;
         private const float CeDisplayFactor = 1.0635f;
 
         private const float LevelCKe = 500f;    // readout target
         private const float LevelCCe = 850f;    // readout target
-        private const float LevelDKe = 592f;    // readout target
+        private const float LevelDKe = 600f;    // readout target
         private const float LevelDCe = 960f;    // readout target
 
         internal static void Apply(Vehicle vic)
@@ -44,12 +44,15 @@ namespace Leo2A4M
             if (vic == null)
                 return;
 
-            string level = Level(Leo2A4MMod.HullArmourLevel != null
-                ? Leo2A4MMod.HullArmourLevel.Value
-                : "b");
+            string raw = Leo2A4MMod.HullArmourLevel != null
+                ? (Leo2A4MMod.HullArmourLevel.Value ?? "")
+                : "";
+            string fromFile = Cfg.GetString("Hull Armour Level (Leo2A4M)", null);
+            if (!string.IsNullOrEmpty(fromFile) && fromFile != raw)
+                raw = fromFile;
+            string level = Level(raw);
             if (level == "b")
             {
-                MelonLogger.Msg("[Leo2A4M] hull armour: level B (donor values untouched)");
                 return;
             }
 
@@ -148,6 +151,37 @@ private static MonoBehaviour FindPlate(Vehicle vic, string name)
                 if (f != null)
                     return f;
             }
+            return null;
+        }
+
+        /// <summary>
+        /// Fallback for installs where MelonPreferences hands back the default instead of the stored
+        /// value: read the key straight out of MelonPreferences.cfg.
+        /// </summary>
+        private static string ReadLevelFromFile()
+        {
+            try
+            {
+                string dir = MelonLoader.Utils.MelonEnvironment.UserDataDirectory;
+                string file = System.IO.Path.Combine(dir, "MelonPreferences.cfg");
+                if (!System.IO.File.Exists(file))
+                    return null;
+                foreach (var line in System.IO.File.ReadAllLines(file))
+                {
+                    if (line.IndexOf("Hull Armour Level (Leo2A4M)", StringComparison.Ordinal) < 0)
+                        continue;
+                    int eq = line.IndexOf('=');
+                    if (eq < 0)
+                        continue;
+                    string v = line.Substring(eq + 1).Trim();
+                    int hash = v.IndexOf('#');
+                    if (hash >= 0)
+                        v = v.Substring(0, hash).Trim();
+                    v = v.Trim('"', ' ');
+                    return v.ToLowerInvariant();
+                }
+            }
+            catch (Exception) { }
             return null;
         }
 

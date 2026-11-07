@@ -5,7 +5,7 @@
     <AssemblyName>Leo2A4M</AssemblyName>
     <RootNamespace>Leo2A4M</RootNamespace>
     <LangVersion>7.3</LangVersion>
-    <Version>1.1.4</Version>
+    <Version>1.9.4</Version>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <DebugType>none</DebugType>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>

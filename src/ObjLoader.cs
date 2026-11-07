@@ -525,7 +525,6 @@ namespace Leo2A4M
                 result[info.Name] = mat;
                 ok++;
             }
-            MelonLoader.MelonLogger.Msg("[Leo2A4M] vehicle-shader materials=" + ok);
             return result;
         }
 

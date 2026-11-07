@@ -71,8 +71,6 @@ namespace Leo2A4M
                     sb.Append(pn).Append('=').Append(FlirBlit.GetTexture(pn) != null ? "tex" : "null").Append(' ');
             }
 
-            MelonLogger.Msg("[Leo2A4M] CITV assets monitor=" + (Monitor != null) +
-                " post=" + (FlirPost != null) + " mat=" + (FlirBlit != null));
         }
 
         private static void LoadMonitor()
@@ -118,6 +116,7 @@ namespace Leo2A4M
         public GameObject nfov;
         private Transform _reticle;
         private FieldInfo _snapp;
+        private float _savedSnap = -1f;
         private FieldInfo _maxDistance;
         private bool _citvActive;
         private bool _lastCitvActive;
@@ -133,7 +132,6 @@ namespace Leo2A4M
             var obj = new GameObject("Leo2A4M CITV manager");
             obj.transform.SetParent(root.transform);
             obj.AddComponent<CITVManager>();
-            MelonLogger.Msg("[Leo2A4M] CITV manager created");
         }
 
         private void Awake()
@@ -220,10 +218,19 @@ namespace Leo2A4M
                 wfov.SetActive(!narrow);
             }
 
-            if (Leo2A4MMod.CitvSmooth != null && Leo2A4MMod.CitvSmooth.Value)
+            if (Leo2A4MMod.SmoothCitv)
             {
-                if (_snapp != null)
-                    _snapp.SetValue(null, active ? 0.20f : 10f);
+                // SNAPPINESS is deliberately NOT touched any more.  Easing it to 0.20 made the
+                // camera follow ~50x smoother, which reads to the player as "the sight barely
+                // moves", and because it is a global static every L2A4M in the mission (and any
+                // other mod) could end up writing it.  The sight's own speed is controlled by the
+                // sensitivity multiplier instead.
+                if (_savedSnap >= 0f && _snapp != null)
+                {
+                    // one-time restore of a value an older build may have left behind
+                    _snapp.SetValue(null, _savedSnap < 0.5f ? 10f : _savedSnap);
+                    _savedSnap = -1f;
+                }
                 if (active && InputUtil.MainPlayer != null && InputUtil.MainPlayer.GetButton("Smooth Aim"))
                 {
                     var weapon = PlayerInput.Instance != null ? PlayerInput.Instance.CurrentPlayerWeapon : null;
@@ -239,10 +246,20 @@ namespace Leo2A4M
     /// actually pans through (aimSensitivity3P only feeds the third-person camera).</summary>
     public static class CitvState
     {
-        public static bool Active;
+        /// <summary>
+        /// Slot the player is looking through right now, or null.  The patches compare against this
+        /// instead of a bare bool: a stale bool used to scale whatever camera was moving, including
+        /// the M1A2C sight when both mods were in a mission.
+        /// </summary>
+        public static CameraSlot ActiveSlot;
         public static float Scale = 1f;
         public static int ScaledCalls;
         public static bool LoggedFirstCall;
+
+        public static bool IsActiveFor(CameraSlot slot)
+        {
+            return slot != null && ActiveSlot != null && ReferenceEquals(slot, ActiveSlot);
+        }
     }
 
     [HarmonyPatch(typeof(GHPC.Camera.BufferedCameraFollow), "TraverseBy")]
@@ -250,14 +267,14 @@ namespace Leo2A4M
     {
         private static void Prefix(ref float __0)
         {
-            if (!CitvState.Active)
+            var cm = CameraManager.Instance;
+            if (cm == null || !CitvState.IsActiveFor(cm._currentCamSlot))
                 return;
             __0 *= CitvState.Scale;
             CitvState.ScaledCalls++;
             if (!CitvState.LoggedFirstCall)
             {
                 CitvState.LoggedFirstCall = true;
-                MelonLogger.Msg("[Leo2A4M] CITV traverse patch active, scale " + CitvState.Scale.ToString("F3"));
             }
         }
     }
@@ -267,7 +284,8 @@ namespace Leo2A4M
     {
         private static void Prefix(ref float __0)
         {
-            if (!CitvState.Active)
+            var cm = CameraManager.Instance;
+            if (cm == null || !CitvState.IsActiveFor(cm._currentCamSlot))
                 return;
             __0 *= CitvState.Scale;
         }
@@ -280,8 +298,7 @@ namespace Leo2A4M
         /// <summary>Player-tunable multiplier for the sight's aiming speed.</summary>
         public static float Sensitivity()
         {
-            var e = Leo2A4MMod.CitvSens;
-            return e != null ? Mathf.Clamp(e.Value, 0.05f, 3f) : 0.3f;
+            return Mathf.Clamp(Leo2A4MMod.CitvSensitivity, 0.05f, 3f);
         }
 
         private void Awake()
@@ -300,21 +317,29 @@ namespace Leo2A4M
 
             if (_citv == null)
                 _citv = GetComponent<CITV>();
-            bool active = (_citv != null && _citv.IsActive) || cm._currentCamSlot == slot;
-            CitvState.Active = active;
 
-            // No FOV term: scaling by slot.CurrentFov made the feel change from level to level
-            // (a narrower default FOV on another map made the sight crawl).  The multiplier is the
-            // player setting and nothing else.
-            CitvState.Scale = Mathf.Clamp(Sensitivity(), 0.05f, 3f);
-
+            // Only the PLAYER's vehicle may claim the camera.  This component runs on every L2A4M in
+            // the mission (AI included), and the old code published a global "active" flag from each
+            // of them - which then scaled whatever camera was moving, e.g. the M1A2C sight, and made
+            // the feel worse the more 2A4Ms were around.
+            var player = PlayerInput.Instance != null ? PlayerInput.Instance.CurrentPlayerUnit : null;
+            bool mine = player != null && player == (GHPC.Unit)GetComponentInParent<Vehicle>();
+            bool active = mine && ((_citv != null && _citv.IsActive) || ReferenceEquals(cm._currentCamSlot, slot));
 
             if (!active)
             {
-                if (cm.CameraFollow != null)
-                    cm.CameraFollow.aimSensitivity3P = 5f;
+                if (mine && CitvState.ActiveSlot != null)
+                {
+                    CitvState.ActiveSlot = null;
+                    if (cm.CameraFollow != null)
+                        cm.CameraFollow.aimSensitivity3P = 5f;
+                }
                 return;
             }
+
+            CitvState.ActiveSlot = slot;
+            // No FOV term: scaling by slot.CurrentFov made the feel change from level to level.
+            CitvState.Scale = Mathf.Clamp(Sensitivity(), 0.05f, 3f);
 
             float fov = slot.CurrentFov;
             if (fov <= 1f || fov > 30f)
@@ -433,7 +458,6 @@ namespace Leo2A4M
             {
                 nods.enabled = false;
                 nods.enabled = true;
-                MelonLogger.Msg("[Leo2A4M] CITV slot re-initialised for " + nods.FLIRWidth + "x" + nods.FLIRHeight);
             }
 
             var simpleNv = nods.GetComponent<SimpleNightVision>();
@@ -448,8 +472,6 @@ namespace Leo2A4M
                 ppv.enabled = false;
                 volumes++;
             }
-            MelonLogger.Msg("[Leo2A4M] CITV post: simpleNV=" + (simpleNv != null ? simpleNv.enabled.ToString() : "none") +
-                " volumes disabled=" + volumes);
 
             // Put the gunner sight's thermal grading on this slot and switch the volume back on
             // (the loop above turned it off): its profile is "GHPC FLIR Early Gen", while this
@@ -463,8 +485,6 @@ namespace Leo2A4M
                     dstVol.sharedProfile = srcVol.sharedProfile;
                     dstVol.enabled = false;
                     _volume = dstVol;
-                    MelonLogger.Msg("[Leo2A4M] CITV post profile := " +
-                        (srcVol.sharedProfile != null ? srcVol.sharedProfile.name : "null") + " enabled=" + dstVol.enabled);
                 }
             }
 
@@ -544,7 +564,6 @@ namespace Leo2A4M
                 _tiltNode.localRotation = Quaternion.identity;
                 _tiltNode.localScale = Vector3.one;
                 nods.transform.SetParent(_tiltNode, true);   // keep the world pose
-                MelonLogger.Msg("[Leo2A4M] CITV tilt node created under " + parent.name);
             }
 
             _tiltNode.localRotation = Quaternion.Euler(trim, 0f, 0f);
@@ -632,22 +651,12 @@ namespace Leo2A4M
 
             try
             {
-                if (_snappiness == null)
-                    _snappiness = typeof(GHPC.Camera.BufferedCameraFollow).GetField("SNAPPINESS",
-                        System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
-                if (_snappiness != null)
-                {
-                    if (IsActive && _savedSnap < 0f)
-                    {
-                        _savedSnap = (float)_snappiness.GetValue(null);
-                        _snappiness.SetValue(null, 0.20f);
-                    }
-                    else if (!IsActive && _savedSnap >= 0f)
-                    {
-                        _snappiness.SetValue(null, _savedSnap);
-                        _savedSnap = -1f;
-                    }
-                }
+                // SNAPPINESS is owned by the single CITVManager now.  Letting every L2A4M's CITV
+                // save/restore it through a shared static meant a "0.20" could be captured as the
+                // original value and written back forever, so the sight felt absurdly sluggish as
+                // soon as a second 2A4M was in the mission.
+                if (_hudReticle != null && _hudReticle.gameObject.activeSelf == IsActive)
+                    _hudReticle.gameObject.SetActive(!IsActive);
             }
             catch (Exception) { }
 
@@ -675,6 +684,18 @@ namespace Leo2A4M
             }
         }
 
+        private bool _wroteSensitivity;
+
+        /// <summary>Only undo the global sensitivity if WE were the ones who changed it.</summary>
+        private void ReleaseSensitivity()
+        {
+            if (!_wroteSensitivity)
+                return;
+            _wroteSensitivity = false;
+            if (camera != null)
+                camera.aimSensitivity3P = 5f;
+        }
+
         private void Update()
         {
             if (camera == null)
@@ -682,12 +703,27 @@ namespace Leo2A4M
             if (camera == null)
                 return;
 
+            // This component runs on every L2A4M, but only the player's own vehicle may touch the
+            // global camera.  Without this gate an AI 2A4M saw the player's commander head (the
+            // M1A2C's), failed the "is that me" test below and wrote aimSensitivity3P = 5 every
+            // frame - which made the M1A2C sight noticeably faster in missions holding both units.
+            var playerUnit = PlayerInput.Instance != null ? PlayerInput.Instance.CurrentPlayerUnit : null;
+            var myVehicle = GetComponentInParent<Vehicle>();
+            if (playerUnit == null || myVehicle == null || playerUnit != (GHPC.Unit)myVehicle)
+            {
+                IsActive = false;
+                if (model != null)
+                    model.SetActive(true);
+                ReleaseSensitivity();
+                return;
+            }
+
             if (camera.commanderHead == null || camera.commanderHead.GetComponent<CITV>() == null)
             {
                 IsActive = false;
                 if (model != null)
                     model.SetActive(true);
-                camera.aimSensitivity3P = 5f;
+                ReleaseSensitivity();
                 return;
             }
 
@@ -702,6 +738,7 @@ namespace Leo2A4M
             IsActive = true;
             curr_sens = 1.25f * (nods.CurrentFov / 60f) * CitvFovFix.Sensitivity();
             camera.aimSensitivity3P = curr_sens;
+            _wroteSensitivity = true;
             if (model != null)
                 model.SetActive(false);
 

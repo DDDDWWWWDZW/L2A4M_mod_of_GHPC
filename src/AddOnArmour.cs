@@ -91,14 +91,24 @@ namespace Leo2A4M
         private static bool _loadTried;
         private static bool _audited;
 
+        /// <summary>
+        /// Marker so we know this instance already has its add-on pieces.  The previous check used
+        /// Transform.Find on a vehicle-root path, but the pieces are parented under the donor armour
+        /// root, so it never matched: the sweep rebuilt 28 objects every two seconds (log spam plus
+        /// a severe frame-rate hit).
+        /// </summary>
+        public class AddOnArmourBuilt : MonoBehaviour { }
+
         /// <summary>Fallback path: called after conversion; skips work already done pre-Awake.</summary>
         internal static void EnsureBuilt(Vehicle vic)
         {
             if (vic == null)
                 return;
-            if (vic.transform.Find("A4M addon vehicle#bone_t2") != null)
+            if (vic.GetComponent<AddOnArmourBuilt>() != null)
                 return;
             Build(vic);
+            if (vic.GetComponent<AddOnArmourBuilt>() == null)
+                vic.gameObject.AddComponent<AddOnArmourBuilt>();
         }
 
         internal static void Build(Vehicle vic)
@@ -172,6 +182,12 @@ namespace Leo2A4M
                 MakeArmour(vic, go, spec);
                 built++;
             }
+
+            bool pack = Cfg.GetBool("Turret Add-on Armour (Leo2A4M)",
+                Leo2A4MMod.TurretAddonEnhanced != null && Leo2A4MMod.TurretAddonEnhanced.Value);
+            var w1 = SpecFor("bone_t1");
+            MelonLogger.Msg("[Leo2A4M] addon armour: " + built + " piece(s); turret package=" + pack +
+                "; wedge " + (w1 != null ? w1.Ke.ToString("F0") + "/" + w1.Ce.ToString("F0") : "?"));
         }
 
         /// <summary>
@@ -197,17 +213,12 @@ namespace Leo2A4M
                         MelonLogger.Warning("[Leo2A4M] align: no visual for " + partName);
                         continue;
                     }
-                    Vector3 before = tr.position;
                     tr.SetParent(vis.parent, true);
                     tr.position = vis.position;
                     tr.rotation = vis.rotation;
                     tr.localScale = vis.localScale;
                     fixedCount++;
-                    MelonLogger.Msg("[Leo2A4M] align " + partName + " was " + before.ToString("F2") +
-                        " now " + tr.position.ToString("F2") +
-                        " (visual " + vis.position.ToString("F2") + ")");
                 }
-                MelonLogger.Msg("[Leo2A4M] addon aligned: " + fixedCount);
             }
             catch (Exception ex)
             {
@@ -228,8 +239,18 @@ namespace Leo2A4M
         private static Piece SpecFor(string name)
         {
             foreach (var p in Pieces)
-                if (name.IndexOf(p.Match, StringComparison.OrdinalIgnoreCase) >= 0)
-                    return p;
+            {
+                if (name.IndexOf(p.Match, StringComparison.OrdinalIgnoreCase) < 0)
+                    continue;
+
+                // Optional turret front add-on package: swap the three wedges for the enhanced values.
+                bool wedge = p.Match == "bone_t1" || p.Match == "bone_t2" || p.Match == "bone_t3";
+                bool enhanced = Cfg.GetBool("Turret Add-on Armour (Leo2A4M)",
+                    Leo2A4MMod.TurretAddonEnhanced != null && Leo2A4MMod.TurretAddonEnhanced.Value);
+                if (wedge && enhanced)
+                    return new Piece(p.Match, p.Host, 200f, 280f, p.Hull);
+                return p;
+            }
             return null;
         }
 
