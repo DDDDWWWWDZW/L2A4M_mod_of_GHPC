@@ -4,12 +4,10 @@ A playable **Leopard 2A4M** (War Thunder model) for **Gunner, HEAT, PC!**, built
 `LEO2A3` donor: add-on armour, hull armour packages, selectable 120 mm rounds and a commander's
 independent thermal viewer.
 
-- **Version**: 2.0.0
 - **Author**: DDDDWWWWDZW
-- **Requires**: MelonLoader 0.6.2 (x64, net35)
+- **Requires**: MelonLoader 0.6.2+
 
-> Model and textures come from War Thunder (Gaijin Entertainment); the game belongs to Radian
-> Simulations. No game files are included. Personal, non-commercial use only.
+> Model and textures come from War Thunder (Gaijin Entertainment),I performed retopology and re-segmented the components to adapt them for in-game functionality. Personal, non-commercial use only.
 
 ## Installation
 
