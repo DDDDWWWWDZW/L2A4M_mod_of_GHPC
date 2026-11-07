@@ -50,6 +50,14 @@ Relevant entries:
 "Hull Armour Level (Leo2A4M)" = "d" # Choose the hull armour package: b / c / d. d is the strongest, b is the stock Leo 2A3 armour. Default: b
 ```
 
+| Round | Penetration | Velocity | ERA bypass |
+|---|---:|---:|---:|
+| KEW-A1 | 608 mm | 1740 m/s | 0% |
+| DM43 | 562 mm | 1700 m/s | 0% |
+| DM53 | 668 mm | 1670 m/s | 30% |
+| DM12A1 | -- | -- | -- |
+
+
 ## Notes
 - The mod models are sourced from War Thunder. I performed retopology and re-segmented the components to adapt them for in-game functionality.All rights reserved. Redistribution, modification and commercial use
 are not permitted without written permission.
