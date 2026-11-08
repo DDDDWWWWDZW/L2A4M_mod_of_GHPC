@@ -10,22 +10,17 @@
 
 ## Installation
 
-Download these two files from [Releases](../../releases):
-
-- `Leo2A4M.dll`
-- `Leo2A4M.l2pack`
-
-and place them like this:
+Download `Leo2A4M-<version>-pack.zip` from [Releases](../../releases) and **extract it directly into
+`<GHPC>/Bin/Mods/`** (right-click → "Extract here"). That single step gives:
 
 ```text
 Bin/Mods/Leo2A4M.dll
 Bin/Mods/Leo2A4M/Leo2A4M.l2pack
 ```
 
-MelonLoader only loads DLLs that sit **directly** in `Bin/Mods`, so the DLL must not go into a
+MelonLoader only loads DLLs that sit **directly** in `Bin/Mods`, so do not bury the DLL in a
 sub-folder. Everything the mod needs — model, textures, tables, CITV display — is inside the
-`.l2pack` and is loaded into memory; nothing is written to disk. (Putting the `.l2pack` next to the
-DLL also works.)
+`.l2pack` and is loaded into memory; nothing is written to disk.
 
 ## Contents
 
